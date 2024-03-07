@@ -19,8 +19,8 @@ const meta = {
       control: { type: 'radio' },
     },
     disabled: {
-      control: 'boolean'
-    }
+      control: 'boolean',
+    },
   },
 } satisfies Meta<typeof Button>
 
@@ -32,7 +32,6 @@ export const Primary: Story = {
   args: {
     disabled: true,
     label: 'Button',
-    variant : 'contained'
-
+    variant: 'contained',
   },
 }
