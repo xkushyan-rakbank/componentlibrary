@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "lint": "eslint 'src/**/*.{js,jsx,ts,tsx}'",
+    "lint": "eslint ' src/components/**/*.{ts,tsx,css}'",
     "prepare": "husky install",
     "lint:fix": "eslint --fix 'src/**/*.{jsx,ts,tsx}'",
     "format": "prettier --write src//**/*.{ts,tsx,css} --config ./.prettierrc",
@@ -31,8 +31,13 @@
   "module": "./dist/reacting-atomic-desing-system.es.js",
   "types": "./dist/index.d.ts",
   "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "@fontsource/roboto": "^5.0.12",
+    "@mui/icons-material": "^5.15.12",
+    "@mui/material": "^5.15.12",
+    "@mui/styled-engine-sc": "^6.0.0-alpha.17",
+    "react": "16.8.0 || >=17.x",
+    "react-dom": "16.8.0 || >=17.x",
+    "styled-components": "^6.1.8"
   },
   "devDependencies": {
     "@storybook/addon-essentials": "^7.6.17",
