@@ -1,4 +1,4 @@
-import { ThemeProvider, createTheme } from '@mui/material/styles'
+import { createTheme,ThemeProvider } from '@mui/material/styles'
 export type {Theme} from '@mui/material/styles'
 
 const darkTheme = createTheme({
@@ -13,4 +13,4 @@ const lightTheme = createTheme({
   },
 })
 
-export { ThemeProvider, createTheme, darkTheme, lightTheme,  }
+export { createTheme, darkTheme, lightTheme,ThemeProvider,   }

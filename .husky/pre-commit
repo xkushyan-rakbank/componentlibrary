@@ -1,7 +1,7 @@
 echo "🤜 Commencing Pre Commit Script, Hold on Boys"
 
 echo "Linting Now 📃"
-npm run lint
+npm run lint:fix
 echo "Formating Now 🎨"
 npm run format
 echo "Running tests on your beautiful code ⚙️"

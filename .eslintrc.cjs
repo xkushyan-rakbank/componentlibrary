@@ -7,7 +7,6 @@ module.exports = {
       "eslint:recommended",
       "plugin:react/recommended",
       "plugin:@typescript-eslint/recommended",
-      "prettier",
       "plugin:storybook/recommended"
     ],
     "parser": "@typescript-eslint/parser",
@@ -18,7 +17,7 @@ module.exports = {
       "ecmaVersion": "latest",
       "sourceType": "module"
     },
-    "plugins": ["react", "@typescript-eslint", "react-hooks", "prettier","simple-import-sort"],
+    "plugins": ["react", "@typescript-eslint", "react-hooks","simple-import-sort"],
     "rules": {
       "camelcase": "error",
       "no-duplicate-imports": "error",
