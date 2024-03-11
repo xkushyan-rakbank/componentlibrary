@@ -19,7 +19,7 @@
      "declarationMap": true,
     "baseUrl": ".",
      "paths": {
-      "reacting-atomic-desing-system": [ "src/component/index.ts" ]
+      "reactive-atomic-desing-system": [ "src/component/index.ts" ]
     },
     "typeRoots": [
       "node_modules/@types",
