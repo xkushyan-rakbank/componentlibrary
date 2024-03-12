@@ -49,3 +49,7 @@ Atomic Design allows us to:
 - **Facilitate communication between team members**: It gives a common language for different teams. Designers, developers, and product managers can use this system to communicate effectively.
 
 Atomic Design is a powerful approach that allows digital designers to create both simple and complex systems from a series of reusable components¹.
+
+# Tailwind
+
+The Scaffold support Tailwind classes, so it is recommended for and molecules and orgnaisms, Please use Tailwind CSS rather than inline styling and also avoid using styled component where ever possible.

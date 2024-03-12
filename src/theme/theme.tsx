@@ -1,20 +1,22 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-// @mui
-import { CssBaseline } from '@mui/material'
+import '@fontsource/cabin';
+
 import {
-  createTheme,
+  ThemeProvider as MUIThemeProvider,
   StyledEngineProvider,
   ThemeOptions,
-  ThemeProvider as MUIThemeProvider,
-} from '@mui/material/styles'
-import { useMemo } from 'react'
+  createTheme,
+} from '@mui/material/styles';
+import shadows, { customShadows } from './shadow';
 
-import componentsOverride from './overrieds'
-import palette from './palette'
-import shadows, { customShadows } from './shadow'
-import typography from './typography'
+/* eslint-disable @typescript-eslint/no-unused-vars */
+// @mui
+import { CssBaseline } from '@mui/material';
+import { useMemo } from 'react';
+import componentsOverride from './overrieds';
+import palette from './palette';
+import typography from './typography';
 // components
-import { useSettingsContext } from './utils/settings'
+import { useSettingsContext } from './utils/settings';
 
 // ----------------------------------------------------------------------
 
@@ -24,11 +26,10 @@ type Props = {
 }
 
 export function ThemeProvider({ children, mode }: Props) {
-  const { themeMode, themeDirection } = useSettingsContext()
-
+  const { themeDirection } = useSettingsContext()
   const isLight = mode === 'light'
 
-  const themeOptions: ThemeOptions = useMemo(
+  const themeOptions: ThemeOptions | any = useMemo(
     () => ({
       palette: isLight ? palette.light : palette.dark,
       typography,
@@ -42,7 +43,6 @@ export function ThemeProvider({ children, mode }: Props) {
   )
 
   const theme = createTheme(themeOptions)
-
   theme.components = componentsOverride(theme)
 
   return (

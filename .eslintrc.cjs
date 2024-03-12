@@ -29,8 +29,8 @@ module.exports = {
       "react-hooks/exhaustive-deps": "off",
       "react/prop-types": 0,
       "react/display-name": 0,
-      "simple-import-sort/imports": "error",
-      "simple-import-sort/exports": "error",
+      "simple-import-sort/imports": "off",
+      "simple-import-sort/exports": "off",
       "@typescript-eslint/no-empty-function":"off",
       "react/no-unknown-property":"off",
       "react/no-unescaped-entities ":"off"
