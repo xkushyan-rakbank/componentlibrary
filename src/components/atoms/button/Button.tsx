@@ -1,14 +1,12 @@
 import { Button as MuiButton, ButtonProps as MuiButtonProps } from '@mui/material'
-import React from 'react'
+import React, { MouseEventHandler } from 'react'
 
-// Only include variant, size, and color
-type ButtonBaseProps = Pick<MuiButtonProps, 'variant' | 'size' | 'color'>
-
-// Use all except disableRipple
-// type ButtonBaseProps = Omit<MuiButtonProps, "disableRipple">;
-
-export interface ButtonProps extends ButtonBaseProps {
-  label: string
+interface ButtonProps extends MuiButtonProps {
+  customClick?: MouseEventHandler<HTMLButtonElement>
 }
 
-export const Button = ({ label, ...rest }: ButtonProps) => <MuiButton {...rest}>{label}</MuiButton>
+export function Button(props: ButtonProps) {
+  const { children } = props
+  return <MuiButton {...props}>{children}</MuiButton>
+}
+export default Button
