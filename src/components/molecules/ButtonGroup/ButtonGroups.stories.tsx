@@ -1,13 +1,11 @@
 /* eslint-disable no-console */
 // ButtonGroups.stories.tsx
 
-import PersonIcon from '@mui/icons-material/Person'
 import { Meta, StoryFn } from '@storybook/react'
 import React from 'react'
-
+import AddCircleIcon from '@mui/icons-material/AddCircle'
 import { ThemeProvider } from '../../../theme/theme'
 import ButtonGroups from './ButtonGroup'
-
 export default {
   title: 'Example/ButtonGroups',
   component: ButtonGroups,
@@ -40,12 +38,12 @@ const Template: StoryFn<typeof ButtonGroups> = (args) => (
 const count2 = [
   {
     label: 'Button',
-    icon: PersonIcon,
+    icon: AddCircleIcon,
     onClick: () => console.log('Home clicked'),
   },
   {
     label: 'Button',
-    icon: PersonIcon,
+    icon: AddCircleIcon,
     onClick: () => console.log('Save clicked'),
   },
 ]
@@ -53,17 +51,17 @@ const count2 = [
 const count3 = [
   {
     label: 'Button',
-    icon: PersonIcon,
+    icon: AddCircleIcon,
     onClick: () => console.log('Home clicked'),
   },
   {
     label: 'Button',
-    icon: PersonIcon,
+    icon: AddCircleIcon,
     onClick: () => console.log('Save clicked'),
   },
   {
     label: 'Button',
-    icon: PersonIcon,
+    icon: AddCircleIcon,
     onClick: () => console.log('Edit clicked'),
   },
 ]
@@ -73,7 +71,7 @@ const count4 = [
   {
     label: 'Button',
     onClick: () => console.log('Edit clicked'),
-    icon: PersonIcon,
+    icon: AddCircleIcon,
   },
 ]
 
@@ -81,7 +79,7 @@ const count5 = [
   ...count4,
   {
     label: 'Button',
-    icon: PersonIcon,
+    icon: AddCircleIcon,
     onClick: () => console.log('Edit clicked'),
   },
 ]
@@ -89,7 +87,7 @@ const count6 = [
   ...count4,
   {
     label: 'Button',
-    icon: PersonIcon,
+    icon: AddCircleIcon,
     onClick: () => console.log('Edit clicked'),
   },
 ]
