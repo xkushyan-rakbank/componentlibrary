@@ -63,13 +63,13 @@ export const Tertiary: StoryFn<typeof IconButton> = Template.bind({})
 Tertiary.args = {
   children: <img src={secondaryPlusIcon} alt="primary plus icon" />,
   color: 'tertiary',
-  size: 'extraSmall',
+  size: 'small',
 }
 export const TertiaryDisabled: StoryFn<typeof IconButton> = Template.bind({})
 TertiaryDisabled.args = {
   children: <img src={disabledPlusIcon} alt="primary plus icon" />, // Set to the disabled plus icon
   color: 'tertiary',
-  size: 'extraSmall',
+  size: 'small',
   disabled: true, // Disabled state
 }
 //create disabled button
