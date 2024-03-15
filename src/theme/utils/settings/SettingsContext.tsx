@@ -1,19 +1,19 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 import {
-  createContext,
   ReactNode,
+  createContext,
   useCallback,
   useContext,
   useEffect,
   useMemo,
 } from 'react';
+import { defaultPreset, getPresets, presetsOption } from './persets';
 
-// hooks
-import useLocalStorage from '../hooks/useLocalStorage';
+import { SettingsContextProps } from './Types';
 //
 import { defaultSettings } from './config';
-import { defaultPreset, getPresets, presetsOption } from './persets';
-import { SettingsContextProps } from './Types';
+// hooks
+import useLocalStorage from '../hooks/useLocalStorage';
 
 // ----------------------------------------------------------------------
 
@@ -33,7 +33,7 @@ const initialState: SettingsContextProps = {
   onChangeContrast: () => {},
   // Color
   onChangeColorPresets: () => {},
-  presetsColor: defaultPreset,
+  presetsColor: defaultPreset as any,
   presetsOption: [],
   // Stretch
   onToggleStretch: () => {},

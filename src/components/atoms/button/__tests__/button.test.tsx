@@ -1,12 +1,11 @@
 import '@testing-library/jest-dom'
 
-import { ButtonProps as MuiButtonProps } from '@mui/material'
 import { fireEvent, render, screen } from '@testing-library/react'
-import React from 'react'
 
 // import PersonIcon from '@mui/icons-material/Person';
 // import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import Button from '../Button'
+import { ButtonProps as MuiButtonProps } from '@mui/material'
+import Button from '../button'
 
 describe('Button', () => {
   const defaultProps: MuiButtonProps = {

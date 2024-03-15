@@ -37,6 +37,7 @@
     "@fontsource/cabin": "^5.0.17",
     "@fontsource/material-icons": "^5.0.14",
     "@fontsource/roboto": "^5.0.12",
+    "@fontsource/space-grotesk": "^5.0.17",
     "@mui/icons-material": "^5.15.12",
     "@mui/material": "^5.15.12",
     "@mui/styled-engine-sc": "^6.0.0-alpha.17",

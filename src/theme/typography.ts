@@ -62,7 +62,7 @@ export function responsiveLineHeights({
 
 // ----------------------------------------------------------------------
 
-const FONT_PRIMARY = 'Cabin' // Google Font
+const FONT_PRIMARY = 'Space Grotesk' // Google Font
 // const FONT_SECONDARY = 'CircularStd, sans-serif'; // Local Font
 
 const typography = {

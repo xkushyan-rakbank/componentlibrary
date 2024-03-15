@@ -1,7 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable camelcase */
-import { alpha } from '@mui/material/styles'
-
 import {
   Black,
   Danger,
@@ -17,6 +13,11 @@ import {
   Warning,
   White,
 } from './colorTokens'
+
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable camelcase */
+import { alpha } from '@mui/material/styles'
+
 // ----------------------------------------------------------------------
 
 function createGradient(color1: string, color2: string) {
@@ -128,6 +129,10 @@ declare module '@mui/material' {
 const accent_secondary = {
   light: Primary[200],
   dark: Primary[200],
+}
+const accent_gray = {
+  light: Grey[1000],
+  dark: Grey[1000],
 }
 const accent_primary = {
   light: Grey[50],
@@ -284,13 +289,15 @@ const CHART_COLORS = {
 const COMMON = {
   common: { black: '#000', white: '#fff' },
   primary: { ...primary, contrastText: '#fff' },
-  secondary: { ...secondary, contrastText: '#1A1A19' },
+  secondary: { ...secondary, contrastText: '#1A1A19', ...accent_secondary },
   info: { ...INFO, contrastText: '#fff' },
   success: { ...SUCCESS, contrastText: Grey[800] },
   warning: { ...WARNING, contrastText: Grey[800] },
   error: { ...danger_primary, contrastText: '#fff' },
   danger: { ...danger_primary, contrastText: '#fff' },
   black: { ...black, contrastText: '#fff' },
+  accentSecondary : accent_secondary,
+  accentGray : accent_gray,
   outlineSecondary: { ...outlineSecondary, contrastText: '#1A1A19' },
   tertiary: { ...tertiary, contrastText: text_primary },
   grey: Grey,

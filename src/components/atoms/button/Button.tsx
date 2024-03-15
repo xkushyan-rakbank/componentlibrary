@@ -1,9 +1,10 @@
 import { Button as MuiButton, ButtonProps as MuiButtonProps } from '@mui/material'
 import React, { MouseEventHandler } from 'react'
 
-interface ButtonProps extends MuiButtonProps {
+export interface ButtonProps extends MuiButtonProps {
   customClick?: MouseEventHandler<HTMLButtonElement>
 }
+
 
 export function Button(props: ButtonProps) {
   const { children } = props
