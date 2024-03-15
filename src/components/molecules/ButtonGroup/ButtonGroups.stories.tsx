@@ -7,7 +7,7 @@ import AddCircleIcon from '@mui/icons-material/AddCircle'
 import { ThemeProvider } from '../../../theme/theme'
 import ButtonGroups from './ButtonGroup'
 export default {
-  title: 'Example/ButtonGroups',
+  title: 'UI/ButtonGroups',
   component: ButtonGroups,
   argTypes: {
     color: {
@@ -28,7 +28,6 @@ export default {
     },
   },
 } as Meta
-//const Template: StoryFn<IconButtonGroupProps> = (args) => <ButtonGroups {...args} />;
 const Template: StoryFn<typeof ButtonGroups> = (args) => (
   <ThemeProvider mode={'light'}>
     <ButtonGroups {...args} />

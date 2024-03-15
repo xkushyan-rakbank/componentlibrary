@@ -1,22 +1,22 @@
-import '@fontsource/cabin';
+import '@fontsource/cabin'
 
 import {
   ThemeProvider as MUIThemeProvider,
   StyledEngineProvider,
   ThemeOptions,
   createTheme,
-} from '@mui/material/styles';
-import shadows, { customShadows } from './shadow';
+} from '@mui/material/styles'
+import shadows, { customShadows } from './shadow'
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
 // @mui
-import { CssBaseline } from '@mui/material';
-import { useMemo } from 'react';
-import componentsOverride from './overrieds';
-import palette from './palette';
-import typography from './typography';
+import { CssBaseline } from '@mui/material'
+import { useMemo } from 'react'
+import componentsOverride from './overrieds'
+import palette from './palette'
+import typography from './typography'
 // components
-import { useSettingsContext } from './utils/settings';
+import { useSettingsContext } from './utils/settings'
 
 // ----------------------------------------------------------------------
 

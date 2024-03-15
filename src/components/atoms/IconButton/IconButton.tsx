@@ -3,7 +3,7 @@ import IconButton, { IconButtonProps as MuiIconButtonProps } from '@mui/material
 
 interface IconButtonProps extends MuiIconButtonProps {
   customClick?: MouseEventHandler<HTMLButtonElement>
-  icon: React.ReactNode
+  //icon: React.ReactNode
 }
 export function IconButtons({ children, ...props }: IconButtonProps) {
   return <IconButton {...props}>{children}</IconButton>

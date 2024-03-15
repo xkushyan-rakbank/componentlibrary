@@ -1,6 +1,8 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React from 'react'
 import {
   ButtonProps as MuiButtonProps,
+  IconButtonProps as MuiIconButtonProps,
   ButtonGroupProps as MuiButtonGroupProps,
   ButtonGroup,
 } from '@mui/material'
@@ -19,18 +21,16 @@ interface IconButtonGroupProps extends MuiButtonGroupProps {
 export function IconButtonGroups(props: IconButtonGroupProps) {
   const { buttons, ...otherProps } = props
   return (
-    <div style={{ display: 'flex', justifyContent: 'center' }}>
-      <ButtonGroup {...otherProps}>
-        {buttons.map((button, index) => {
-          const { icon: Icon, ...buttonProps } = button
-          return (
-            <Button key={index} variant="outlined" color="secondary" {...buttonProps}>
-              {<Icon />}
-            </Button>
-          )
-        })}
-      </ButtonGroup>
-    </div>
+    <ButtonGroup {...otherProps}>
+      {buttons.map((button, index) => {
+        const { icon: Icon, ...buttonProps } = button
+        return (
+          <Button key={index} variant="outlined" color="secondary" {...buttonProps}>
+            {<Icon />}
+          </Button>
+        )
+      })}
+    </ButtonGroup>
   )
 }
 

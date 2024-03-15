@@ -14,32 +14,29 @@ describe('IconButtons', () => {
   }
 
   const renderComponent = (props: MuiIconButtonProps = defaultProps) => {
-    render(<IconButtons icon={undefined} {...props} />)
+    render(<IconButtons icon={props.children} {...props} />)
   }
-  test('renders Button component with children', () => {
+  test('Should renders Icon Button component with children', () => {
     renderComponent()
-    screen.debug()
+    expect(screen.getByTestId('PersonIcon')).toBeTruthy()
   })
 
-  test('handles click events', () => {
-    const handleClick = jest.fn()
-    render(
-      <IconButtons onClick={handleClick} icon={undefined}>
-        Click Me
-      </IconButtons>,
-    )
-    const buttonElement = screen.getByText('Click Me')
-    fireEvent.click(buttonElement)
-    expect(handleClick).toHaveBeenCalledTimes(1)
-  })
+  test('Should call onclick fuction on icon button click', () => {
+    renderComponent()
+    const btn = screen.getByRole('button')
 
-  test('is disabled when the disabled prop is true', () => {
-    render(
-      <IconButtons disabled icon={undefined}>
-        Disabled Button
-      </IconButtons>,
-    )
-    const buttonElement = screen.getByText('Disabled Button')
-    expect(buttonElement).toHaveProperty('disabled', true)
+    screen.debug(btn)
+    fireEvent.click(btn)
+    expect(defaultProps.onClick).toHaveBeenCalled()
+  })
+  test('Should disabled button when disabled prop is true', () => {
+    const props = {
+      ...defaultProps,
+      disabled: true,
+    }
+    renderComponent(props)
+    const btn = screen.getByRole('button')
+
+    expect(btn).toHaveProperty('disabled', true)
   })
 })

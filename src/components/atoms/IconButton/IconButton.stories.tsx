@@ -9,7 +9,7 @@ import primaryPlusIcon from '../../../assets/primaryPlusIcon.svg'
 import secondaryPlusIcon from '../../../assets/secondaryPlusIcon.svg'
 import disabledPlusIcon from '../../../assets/disabledPlusIcon.svg'
 export default {
-  title: 'Example/IconButton',
+  title: 'UI/IconButton',
   component: IconButton,
   argTypes: {
     color: {
@@ -40,8 +40,8 @@ const Template: StoryFn<typeof IconButton> = (args) => (
 export const Default: StoryFn<typeof IconButton> = Template.bind({})
 Default.args = {
   onClick: () => console.log('Button clicked'),
-  //children: <img src={primaryPlusIcon} alt="primary plus icon" />,
-  icon: <AddIcon />,
+  children: <img src={primaryPlusIcon} alt="primary plus icon" />,
+  //icon: <AddIcon />,
 }
 
 export const Black: StoryFn<typeof IconButton> = Template.bind({})

@@ -1,4 +1,4 @@
-import { Theme } from '@mui/material/styles';
+import { Theme } from '@mui/material/styles'
 
 // ----------------------------------------------------------------------
 
@@ -11,25 +11,25 @@ export default function IconButton(theme: Theme) {
           border: '0px 0px 1px 0px',
         },
         sizeExtraSmall: {
-          //padding: '4px 8px',
+          padding: '4px 8px',
           //gap: '4px', // gap
           window: '24px',
           height: '24px',
         },
         sizeLarge: {
-          //padding: '12px 16px',
+          padding: '12px 16px',
           width: '48px',
           height: '48px',
           //gap: '10px',
         },
         sizeMedium: {
-          //padding: '8px 12px',
+          padding: '8px 12px',
           width: '40px',
           height: '40px',
           //gap: '8px',
         },
         sizeSmall: {
-          //padding: '8px 8px',
+          padding: '8px 8px',
           width: '32px',
           height: '32px',
           //gap: '6px', // gap
@@ -82,5 +82,5 @@ export default function IconButton(theme: Theme) {
         },
       },
     },
-  };
+  }
 }

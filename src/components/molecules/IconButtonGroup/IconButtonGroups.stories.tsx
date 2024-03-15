@@ -5,15 +5,15 @@ import { Meta, StoryFn } from '@storybook/react'
 import React from 'react'
 
 import { ThemeProvider } from '../../../theme/theme'
-import IconButtonGroups from '../ButtonGroup/ButtonGroup'
+import IconButtonGroups from './IconButtonGroup'
 import AddCircleIcon from '@mui/icons-material/AddCircle'
 export default {
-  title: 'Example/IconButtonGroups',
+  title: 'UI/IconButtonGroups',
   component: IconButtonGroups,
   argTypes: {
     color: {
       control: { type: 'select' },
-      options: ['black', 'danger', 'secondary', 'tertiary', 'outlineSecondary'],
+      options: ['secondary', 'tertiary', 'outlineSecondary'],
     },
     size: {
       control: {
@@ -38,13 +38,11 @@ const Template: StoryFn<typeof IconButtonGroups> = (args) => (
 const count2 = [
   {
     label: '',
-
     icon: AddCircleIcon,
     onClick: () => console.log('Home clicked'),
   },
   {
     label: '',
-
     icon: AddCircleIcon,
     onClick: () => console.log('Save clicked'),
   },
