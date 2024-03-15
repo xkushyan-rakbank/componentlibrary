@@ -14,8 +14,13 @@ describe('IconButtons', () => {
   }
 
   const renderComponent = (props: MuiIconButtonProps = defaultProps) => {
-    render(<IconButtons icon={props.children} {...props} />)
+    return render(<IconButtons icon={props.children} {...props} />)
   }
+
+  test.only('Should match snapshot', () => {
+    expect(renderComponent().container).toMatchSnapshot()
+  })
+
   test('Should renders Icon Button component with children', () => {
     renderComponent()
     expect(screen.getByTestId('PersonIcon')).toBeTruthy()
