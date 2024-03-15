@@ -18,7 +18,7 @@ const sizes = {
 
 const left = {
   small: '-6px',
-  medium: '-2.5px',
+  medium: '-4.5px',
   large: 0,
 }
 
@@ -33,7 +33,7 @@ function calculateHeight(width: number): number {
 }
 
 function calculateInnerCircleDiameter(outerWidth: number): number {
-  return outerWidth * 0.5
+  return outerWidth * 0.45
 }
 
 
@@ -118,6 +118,7 @@ function Switch({ icon, size = 'medium', ...props }: SwitchStyleProps) {
           style={{
             width: calculateInnerCircleDiameter(sizes[size]),
             height: calculateInnerCircleDiameter(sizes[size]),
+            margin : calculateInnerCircleDiameter(sizes[size]) * 0.0572,
           }}
           className="box-content bg-current rounded-full flex justify-center items-center"
         >

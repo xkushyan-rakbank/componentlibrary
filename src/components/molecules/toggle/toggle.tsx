@@ -15,7 +15,7 @@ const Toggle = ({label, caption, switchProps}: ToggleProps) => {
             <Switch icon size="medium" {...switchProps} />
             </div>
             <div className="pl-[12px]">
-                <Typography fontWeight={500} variant="body1">{label}</Typography>
+                <Typography fontWeight={400} variant="body1">{label}</Typography>
                 <Typography className="pt-[2px]" variant="body1">{caption}</Typography>
             </div>
         </div>
