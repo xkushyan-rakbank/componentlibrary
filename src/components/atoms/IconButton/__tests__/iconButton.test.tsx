@@ -3,12 +3,10 @@ import '@testing-library/jest-dom'
 import { IconButtonProps as MuiIconButtonProps } from '@mui/material'
 import { fireEvent, render, screen } from '@testing-library/react'
 import React from 'react'
-//import primaryPlusIcon from '../../../../assets/primaryPlusIcon.svg'
 import IconButtons from '../IconButton'
 import PersonIcon from '@mui/icons-material/Person'
 describe('IconButtons', () => {
   const defaultProps: MuiIconButtonProps = {
-    //icon: <span>Test Icon</span>,
     children: <PersonIcon />,
     onClick: jest.fn(),
   }
