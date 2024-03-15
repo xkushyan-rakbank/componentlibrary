@@ -1,4 +1,4 @@
-import { Theme } from '@mui/material/styles';
+import { Theme } from '@mui/material/styles'
 
 // ----------------------------------------------------------------------
 
@@ -16,7 +16,6 @@ export default function Button(theme: Theme) {
           sizeExtraSmall: {
             height: 24, // adjust as necessary
             fontSize: '0.7rem', // adjust as necessary
-            // add any other styles you want to apply to extra small buttons
           },
         },
         sizeExtraSmall: {
@@ -64,7 +63,6 @@ export default function Button(theme: Theme) {
           color: '#1A1A19',
           border: '1px solid #220600',
           borderColor: `${theme.palette.outlineSecondary.main}`,
-          //border: '1px solid #220600',
         },
         containedSecondary: {
           backgroundColor: theme.palette.tertiary.light,
@@ -88,10 +86,7 @@ export default function Button(theme: Theme) {
           '&:focus': {
             boxShadow: '0px 0px 0px 3px #FFBDA8, 0px 3px 4px -3px #FFBDA8',
           },
-          //boxShadow: theme.customShadows.error,
         },
-
-        // outlined
         textInherit: {
           '&:hover': {
             backgroundColor: theme.palette.action.hover,
@@ -99,5 +94,5 @@ export default function Button(theme: Theme) {
         },
       },
     },
-  };
+  }
 }
