@@ -1,5 +1,5 @@
 import { Meta, Story } from '@storybook/react';
-import { ITypography, Typography } from './typography';
+import { ITypography, Typography } from './Typography';
 
 import ThemeProvider from 'src/theme/theme';
 
