@@ -1,12 +1,12 @@
-import React from 'react'
 import {
-  //Button as MuiButton,
-  ButtonProps as MuiButtonProps,
-  ButtonGroupProps as MuiButtonGroupProps,
   ButtonGroup,
+  ButtonGroupProps as MuiButtonGroupProps,
+  ButtonProps as MuiButtonProps,
 } from '@mui/material'
-import { Button } from '../../atoms/button/Button'
+
 import { SvgIconProps } from '@mui/material/SvgIcon'
+import React from 'react'
+import { Button } from '../../atoms/button/Button'
 
 interface ButtonProps extends MuiButtonProps {
   label: string
@@ -24,9 +24,6 @@ export function ButtonGroups(props: IconButtonGroupProps) {
       {buttons.map((button, index) => {
         const { label, icon: Icon, ...buttonProps } = button
         return (
-          //   <MuiButton key={index} startIcon={<Icon />} {...buttonProps}>
-          //     {label}
-          //   </MuiButton>
           <Button
             key={index}
             variant="outlined"

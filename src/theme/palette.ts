@@ -148,8 +148,8 @@ const danger_primary = {
   dark: Danger[200],
 }
 const danger_secondary = {
-  light: Danger[100],
-  dark: Danger[100],
+  light: Danger[50],
+  dark: Danger[50],
 }
 const info_primary = {
   light: Info[200],
@@ -297,6 +297,7 @@ const COMMON = {
   danger: { ...danger_primary, contrastText: '#fff' },
   black: { ...black, contrastText: '#fff' },
   accentSecondary : accent_secondary,
+  dangerSecondary : danger_secondary,
   accentGray : accent_gray,
   outlineSecondary: { ...outlineSecondary, contrastText: '#1A1A19' },
   tertiary: { ...tertiary, contrastText: text_primary },

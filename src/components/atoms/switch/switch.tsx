@@ -5,7 +5,7 @@ import CheckedIcon from '../../../assets/checkedIcon.svg';
 
 type Size = 'small' | 'medium' ;
 
-interface SwitchStyleProps {
+export interface SwitchStyleProps {
   icon?: boolean
   size?: Size
 }
@@ -131,5 +131,5 @@ function Switch({ icon, size = 'medium', ...props }: SwitchStyleProps) {
   )
 }
 
-export { Switch, SwitchStyleProps };
+export { Switch };
 
