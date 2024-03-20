@@ -26,6 +26,7 @@ export const Grey = {
   50: '#FDFCFC',
   100: '#F1F0EF',
   200: '#E0DFDC',
+  1000 : '#ECECED',
   300: '#CBC8C3',
   400: '#B3AFA8',
   500: '#959188',
@@ -69,6 +70,7 @@ export const Warning = {
   900: '#483D19',
 }
 export const Danger = {
+  50: '#FEF2F2',
   100: '#FFE1E1',
   200: '#FFE0E0',
   300: '#751D1D',
