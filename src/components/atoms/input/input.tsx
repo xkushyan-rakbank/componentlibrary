@@ -4,9 +4,9 @@ import { pixleToEm } from 'src/theme/utils/utils';
 import styled from 'styled-components';
 
 const fontsize = {
-  'small' : pixleToEm(12, true),
-  'medium' : pixleToEm(14, true),
-  'large' : pixleToEm(16, true)
+  'small' : "12px",
+  'medium' : "14px",
+  'large' : "16px"
 }
 
 const DynamicPadding = {
@@ -21,6 +21,7 @@ const StyleInput = styled(InputMui)`
   border-radius : ${pixleToEm(4, true)};
   background-color: #F1F0EF;
   font-size: ${(props) => fontsize[props.size]};
+  width : 238px;
 
   &.Mui-focused{
     box-shadow: 0px 0px 0px 3px ${(props) => props.theme.palette.accentSecondary[props.theme.palette.mode]};

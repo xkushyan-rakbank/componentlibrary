@@ -1,8 +1,9 @@
-import { FormControl, FormHelperText, InputLabel, InputProps, useTheme } from '@mui/material'
+import { FormControl, InputProps, useTheme } from '@mui/material'
 
+import { Label } from 'src/components/organism/label/label'
 import { pixleToEm } from 'src/theme/utils/utils'
 import styled from 'styled-components'
-import { Select } from '../select/select'
+import { Select } from '../../atoms/select/select'
 
 interface ExtendedInputProps {
   size?: 'small' | 'medium' | 'large'
@@ -65,13 +66,22 @@ function InputFeild({
       theme={theme}
       variant="standard"
     >
-      <InputLabel disableAnimation shrink={true} id="demo-simple-select-label">
+      <Label size={size} defaultIcon={true}>
         {inputLabel}
-      </InputLabel>
-      <Select size={size || 'medium'} labelId="demo-simple-select-label" disabled={disabled} variant={'standard'}>
+      </Label>
+
+      <Select
+        size={size || 'medium'}
+        labelId="demo-simple-select-label"
+        disabled={disabled}
+        variant={'standard'}
+      >
         {children}
       </Select>
-      <FormHelperText>Hint</FormHelperText>
+
+      <Label className='pt-[4px]' size={size} defaultIcon={false}>
+        Hint
+      </Label>
     </FormControlMui>
   )
 }
