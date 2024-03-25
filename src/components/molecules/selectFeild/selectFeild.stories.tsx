@@ -1,10 +1,11 @@
 import { Meta, Story } from '@storybook/react'
 
+import { MenuItem } from '@mui/material'
 import ThemeProvider from '../../../theme/theme'
-import { InputFeild } from './inputFeild'
+import { InputFeild } from './selectFeild'
 
 export default {
-  title: 'UI/InputFeild',
+  title: 'Molecules/SelectFeild',
   component: InputFeild,
   argTypes: {
     size: {
@@ -13,23 +14,27 @@ export default {
     },
 
     error: {
-        control: {
-            type: 'boolean',
-        },
-        defaultValue: false,
+      control: {
+        type: 'boolean',
+      },
+      defaultValue: false,
     },
     disabled: {
-        control: {
-            type: 'boolean',
-        },
-        defaultValue: false,
+      control: {
+        type: 'boolean',
+      },
+      defaultValue: false,
     },
   },
 } as Meta
 
 const Template: Story = (args) => (
   <ThemeProvider mode={'light'}>
-    <InputFeild {...args} />
+    <InputFeild {...args}>
+      <MenuItem value={10}>Ten</MenuItem>
+      <MenuItem value={20}>Twenty</MenuItem>
+      <MenuItem value={30}>Thirty</MenuItem>
+    </InputFeild>
   </ThemeProvider>
 )
 

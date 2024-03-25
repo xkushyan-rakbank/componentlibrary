@@ -37,13 +37,13 @@ function calculateInnerCircleDiameter(outerWidth: number): number {
 }
 
 
-interface IOSSwitchProps extends MuiSwitchProps {
+interface MUISwitchProps extends MuiSwitchProps {
   size?: Size;
 }
 
-const IOSSwitch = styled((props: IOSSwitchProps) => (
+const MUISwitch = styled((props: MUISwitchProps) => (
   <SwitchMui focusVisibleClassName=".Mui-focusVisible" disableRipple {...props} />
-))(({ theme, size = 'medium' }: IOSSwitchProps & {theme : any}) => {
+))(({ theme, size = 'medium' }: MUISwitchProps & {theme : any}) => {
   const accentTheme = theme.palette.accentSecondary[theme.palette.mode];
   const accentGrayTheme = theme.palette.accentGray[theme.palette.mode];
   return {
@@ -111,7 +111,7 @@ const IOSSwitch = styled((props: IOSSwitchProps) => (
 
 function Switch({ icon, size = 'medium', ...props }: SwitchStyleProps) {
   return (
-    <IOSSwitch
+    <MUISwitch
       size={size}
       checkedIcon={
         <span

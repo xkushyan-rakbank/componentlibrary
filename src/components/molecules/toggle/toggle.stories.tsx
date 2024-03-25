@@ -4,7 +4,7 @@ import { Toggle, ToggleProps } from './toggle'
 import ThemeProvider from 'src/theme/theme'
 
 export default {
-  title: 'UI/Toggle',
+  title: 'Molecules/Toggle',
   component: Toggle,
   argTypes: {
     label : {

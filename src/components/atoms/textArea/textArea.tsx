@@ -1,12 +1,12 @@
-import { Input as InputMui, InputProps, useTheme } from '@mui/material'
+import { TextareaAutosize, TextareaAutosizeProps, useTheme } from '@mui/material'
 
 import { pixleToEm } from 'src/theme/utils/utils'
 import styled from 'styled-components'
 
 const fontsize = {
-  'small' : "12px",
-  'medium' : "14px",
-  'large' : "16px"
+  small: pixleToEm(12, true),
+  medium: pixleToEm(14, true),
+  large: pixleToEm(16, true),
 }
 
 const DynamicPadding = {
@@ -15,13 +15,12 @@ const DynamicPadding = {
   large: pixleToEm(12, true),
 }
 
-const StyleInput = styled(InputMui)`
+const TextAreaMui = styled(TextareaAutosize)`
   padding: ${pixleToEm(8, true)};
   border: 1px solid rgba(0, 0, 0, 0);
   border-radius: ${pixleToEm(4, true)};
   background-color: #f1f0ef;
   font-size: ${(props) => fontsize[props.size]};
-  width : 238px;
 
   &.Mui-focused {
     box-shadow: 0px 0px 0px 3px
@@ -55,7 +54,7 @@ const StyleInput = styled(InputMui)`
 
     height: 1em;
     padding: 0 ${(props) => DynamicPadding[props.size]};
-    font-size: ${(props: { size: keyof typeof fontsize }) => fontsize[props.size]};
+    font-size: ${(props) => fontsize[props.size]};
   }
 
   &::before {
@@ -72,19 +71,14 @@ const StyleInput = styled(InputMui)`
 `
 // omit size from InputProps
 
-type DefaultProps = Omit<InputProps, 'size'> & {
+type DefaultProps = Omit<TextareaAutosizeProps, 'size'> & {
   // Define the types of your default props here
-  size: string
+  size?: string
 }
 
-const defaultProps: DefaultProps = {
-  // Define your default props here
-  size: 'medium',
-}
-
-function Input({ size = defaultProps.size, ...rest }: DefaultProps) {
+function TextArea({ ...rest }: DefaultProps) {
   const theme = useTheme()
 
-  return <StyleInput theme={theme} size={size} {...rest} />
+  return <TextAreaMui theme={theme} {...rest} />
 }
-export { Input }
+export { TextArea }

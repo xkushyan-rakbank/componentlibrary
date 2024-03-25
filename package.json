@@ -44,7 +44,8 @@
     "jest-environment-jsdom": "^29.7.0",
     "react": "16.8.0 || >=17.x",
     "react-dom": "16.8.0 || >=17.x",
-    "styled-components": "^6.1.8"
+    "styled-components": "^6.1.8",
+    "vite-plugin-svgr": "^4.2.0"
   },
   "devDependencies": {
     "@storybook/addon-essentials": "^7.6.17",
