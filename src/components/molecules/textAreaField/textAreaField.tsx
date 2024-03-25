@@ -55,8 +55,6 @@ function TextAreaField({
   size = defaultProps.size,
   inputLabel = defaultProps.inputLabel,
   error = defaultProps.error,
-  children,
-  disabled,
 }: ExtendedInputProps) {
   const theme = useTheme()
   return (

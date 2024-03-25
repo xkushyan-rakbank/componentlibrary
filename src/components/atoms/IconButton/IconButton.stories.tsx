@@ -1,13 +1,12 @@
-/* eslint-disable no-console */
-import React from 'react'
-import { StoryFn, Meta } from '@storybook/react'
-import { ThemeProvider } from '../../../theme/theme'
-import IconButton from './IconButton'
-import AddIcon from '@mui/icons-material/Add'
+import { Meta, StoryFn } from '@storybook/react'
 
+import IconButton from './IconButton'
+/* eslint-disable no-console */
+import disabledPlusIcon from '../../../assets/disabledPlusIcon.svg'
 import primaryPlusIcon from '../../../assets/primaryPlusIcon.svg'
 import secondaryPlusIcon from '../../../assets/secondaryPlusIcon.svg'
-import disabledPlusIcon from '../../../assets/disabledPlusIcon.svg'
+import { ThemeProvider } from '../../../theme/theme'
+
 export default {
   title: 'UI/IconButton',
   component: IconButton,
@@ -41,7 +40,6 @@ export const Default: StoryFn<typeof IconButton> = Template.bind({})
 Default.args = {
   onClick: () => console.log('Button clicked'),
   children: <img src={primaryPlusIcon} alt="primary plus icon" />,
-  //icon: <AddIcon />,
 }
 
 export const Black: StoryFn<typeof IconButton> = Template.bind({})
