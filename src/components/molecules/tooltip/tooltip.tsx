@@ -50,15 +50,15 @@ const CustomTooltip: React.FC<CustomTooltipProps> = ({
         color={index === 0 ? 'secondary' : 'black'}
         onClick={button.onClick}
         size="small"
-        sx={{
+        sx={(theme) => ({
           width: '104px',
           marginRight: index === 0 ? 3 : 0,
           itemSpacing: 'at_spacing_6',
           borderRadius: 'at_border_radius_8',
           fontSize: '12px',
-          border: '1px solid black',
+          border: `1px solid ${theme.palette.grey[900]}`,
           fontWeight: 700,
-        }}
+        })}
       >
         {button.label}
       </Button>
@@ -89,7 +89,7 @@ const CustomTooltip: React.FC<CustomTooltipProps> = ({
             padding: '12px', // Padding
             boxShadow: '0px 8px 14px -4px #110C2214', // Box shadow
             borderRadius: 'var(--radiusborderradius12)', // Border radius
-            border: '1px solid #FDFCFC', // Border
+            border: `1px solid ${theme.palette.grey[50]}`, // Border
             opacity: 0, // Opacity
             fontFamily: 'Space Grotesk',
             fontSize: 'var(--radiusborderradius12)',
