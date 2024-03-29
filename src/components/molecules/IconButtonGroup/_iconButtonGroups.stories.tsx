@@ -5,7 +5,7 @@ import { Meta, StoryFn } from '@storybook/react'
 
 import AddCircleIcon from '@mui/icons-material/AddCircle'
 import { ThemeProvider } from '../../../theme/theme'
-import IconButtonGroups from './IconButtonGroup'
+import IconButtonGroups from './_iconButtonGroup'
 
 export default {
   title: 'Molecules/IconButtonGroups',

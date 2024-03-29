@@ -1,6 +1,6 @@
 import { Meta, StoryFn } from '@storybook/react'
 
-import IconButton from './IconButton'
+import IconButton from './iconButton'
 /* eslint-disable no-console */
 import disabledPlusIcon from '../../../assets/disabledPlusIcon.svg'
 import primaryPlusIcon from '../../../assets/primaryPlusIcon.svg'
