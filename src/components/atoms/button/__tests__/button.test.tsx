@@ -5,7 +5,7 @@ import { fireEvent, render, screen } from '@testing-library/react'
 // import PersonIcon from '@mui/icons-material/Person';
 // import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { ButtonProps as MuiButtonProps } from '@mui/material'
-import Button from '../_button'
+import Button from '../button'
 
 describe('Button', () => {
   const defaultProps: MuiButtonProps = {
