@@ -1,7 +1,7 @@
 import React from 'react'
 import { render, fireEvent } from '@testing-library/react'
 //import AddCircleIcon from '@mui/icons-material/AddCircle'
-import ButtonGroups from '../_buttonGroup'
+import ButtonGroups from '../buttonGroup'
 
 describe('ButtonGroups', () => {
   const buttons = [
