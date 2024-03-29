@@ -1,6 +1,6 @@
 import React from 'react'
 import { render, fireEvent } from '@testing-library/react'
-import IconButtonGroups from '../IconButtonGroup'
+import IconButtonGroups from '../_iconButtonGroup'
 
 describe('IconButtonGroups', () => {
   const buttons = [

@@ -1,12 +1,13 @@
-import {
-  ButtonGroup,
-  ButtonGroupProps as MuiButtonGroupProps,
-  ButtonProps as MuiButtonProps,
-} from '@mui/material'
-
-import { SvgIconProps } from '@mui/material/SvgIcon'
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React from 'react'
-import { Button } from '../../atoms/button/Button'
+import {
+  ButtonProps as MuiButtonProps,
+  IconButtonProps as MuiIconButtonProps,
+  ButtonGroupProps as MuiButtonGroupProps,
+  ButtonGroup,
+} from '@mui/material'
+import { Button } from '../../atoms/button/_button'
+import { SvgIconProps } from '@mui/material/SvgIcon'
 
 interface ButtonProps extends MuiButtonProps {
   label: string
@@ -17,21 +18,15 @@ interface IconButtonGroupProps extends MuiButtonGroupProps {
   buttons: ButtonProps[]
 }
 
-export function ButtonGroups(props: IconButtonGroupProps) {
+export function IconButtonGroups(props: IconButtonGroupProps) {
   const { buttons, ...otherProps } = props
   return (
     <ButtonGroup {...otherProps}>
       {buttons.map((button, index) => {
-        const { label, icon: Icon, ...buttonProps } = button
+        const { icon: Icon, ...buttonProps } = button
         return (
-          <Button
-            key={index}
-            variant="outlined"
-            color="secondary"
-            startIcon={<Icon />}
-            {...buttonProps}
-          >
-            {label}
+          <Button key={index} variant="outlined" color="secondary" {...buttonProps}>
+            {<Icon />}
           </Button>
         )
       })}
@@ -39,4 +34,4 @@ export function ButtonGroups(props: IconButtonGroupProps) {
   )
 }
 
-export default ButtonGroups
+export default IconButtonGroups

@@ -5,7 +5,7 @@ import { fireEvent, render, screen } from '@testing-library/react'
 // import PersonIcon from '@mui/icons-material/Person';
 // import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { ButtonProps as MuiButtonProps } from '@mui/material'
-import Button from '../button'
+import Button from '../_button'
 
 describe('Button', () => {
   const defaultProps: MuiButtonProps = {
@@ -19,9 +19,7 @@ describe('Button', () => {
   }
   test('renders Button component with children', () => {
     renderedComponent({ children: 'Test Button' })
-    screen.debug()
     const buttonElement = screen.getByText('Test Button')
-    screen.debug(buttonElement)
     expect(buttonElement).toBeTruthy()
   })
 
