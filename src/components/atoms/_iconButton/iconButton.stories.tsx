@@ -2,10 +2,10 @@ import { Meta, StoryFn } from '@storybook/react'
 
 import IconButton from './iconButton'
 /* eslint-disable no-console */
-import disabledPlusIcon from '../../../assets/disabledPlusIcon.svg'
-import primaryPlusIcon from '../../../assets/primaryPlusIcon.svg'
-import secondaryPlusIcon from '../../../assets/secondaryPlusIcon.svg'
-import { ThemeProvider } from '../../../theme/theme'
+import disabledPlusIcon from '@assets/disabledPlusIcon.svg'
+import primaryPlusIcon from '@assets/primaryPlusIcon.svg'
+import secondaryPlusIcon from '@assets/secondaryPlusIcon.svg'
+import { ThemeProvider } from '@theme/theme'
 
 export default {
   title: 'UI/IconButton',

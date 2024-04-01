@@ -1,7 +1,7 @@
 import { Args, Meta, Story } from '@storybook/react'
-import { Toggle, ToggleProps } from './toggle'
 
-import ThemeProvider from 'src/theme/theme'
+import ThemeProvider from '@theme/theme'
+import { Toggle, ToggleProps } from './toggle'
 
 export default {
   title: 'Molecules/Toggle',

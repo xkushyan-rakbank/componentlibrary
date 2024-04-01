@@ -1,6 +1,5 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
-//import AddCircleIcon from '@mui/icons-material/AddCircle'
 import CustomTooltip from '../tooltip'
 
 describe('CustomTooltip', () => {

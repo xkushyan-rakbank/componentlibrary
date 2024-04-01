@@ -3,8 +3,9 @@ import '@testing-library/jest-dom'
 import { IconButtonProps as MuiIconButtonProps } from '@mui/material'
 import { fireEvent, render, screen } from '@testing-library/react'
 import React from 'react'
-import IconButtons from '../iconButton'
 import PersonIcon from '@mui/icons-material/Person'
+
+import IconButtons from '../iconButton'
 describe('IconButtons', () => {
   const defaultProps: MuiIconButtonProps = {
     children: <PersonIcon />,

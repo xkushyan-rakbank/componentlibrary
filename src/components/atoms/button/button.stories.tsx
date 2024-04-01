@@ -1,8 +1,8 @@
 import type { Meta, StoryFn } from '@storybook/react'
-
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
 import PersonIcon from '@mui/icons-material/Person'
-import { ThemeProvider } from '../../../theme/theme'
+
+import { ThemeProvider } from '@theme/theme'
 import { Button } from './button'
 
 export default {

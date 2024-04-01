@@ -7,7 +7,7 @@ import {
 } from '@mui/material'
 import { ReactNode, useState } from 'react'
 
-import { pixleToEm } from 'src/theme/utils/utils'
+import { pixleToEm } from '@theme/utils/utils'
 import styled from 'styled-components'
 
 const fontsize = {

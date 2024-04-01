@@ -1,8 +1,10 @@
 /* eslint-disable no-console */
 import React from 'react'
 import { Meta, StoryFn } from '@storybook/react'
+
+import { ThemeProvider } from '@theme/theme'
 import CustomTooltip from './tooltip'
-import { ThemeProvider } from '../../../theme/theme'
+
 export default {
   title: 'Molecules/CustomTooltip',
   component: CustomTooltip,

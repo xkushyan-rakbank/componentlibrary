@@ -1,7 +1,8 @@
-import Icon from 'src/assets/inputLabelIcon.svg'
-import { Typography } from 'src/components/atoms/typography/typography'
-import { pixleToEm } from 'src/theme/utils/utils'
 import styled from 'styled-components'
+
+import Icon from '@assets/inputLabelIcon.svg'
+import { Typography } from '@atoms/typography/typography'
+import { pixleToEm } from '@theme/utils/utils'
 
 const ImgSizes = {
   small: {

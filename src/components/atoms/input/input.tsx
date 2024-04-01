@@ -1,6 +1,6 @@
 import { Input as InputMui, InputProps, useTheme } from '@mui/material'
 
-import { pixleToEm } from 'src/theme/utils/utils'
+import { pixleToEm } from '@theme/utils/utils'
 import styled from 'styled-components'
 
 const fontsize = {
@@ -55,7 +55,7 @@ const StyleInput = styled(InputMui)`
 
     height: 1em;
     padding: 0 ${(props) => DynamicPadding[props.size]};
-    font-size: ${(props: { size: keyof typeof fontsize }) => fontsize[props.size]};
+    font-size: ${(props: { size?: keyof typeof fontsize }) => fontsize[props.size ?? 'defaultSize']};
   }
 
   &::before {

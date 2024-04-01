@@ -1,9 +1,10 @@
 import { Story } from '@storybook/react'
-import ThemeProvider from '../../../theme/theme'
+
+import ThemeProvider from '@theme/theme'
 import { Label } from './label'
 
 export default {
-  title: 'Organisms/InputLable',
+  title: 'Organisms/InputLabel',
   component: Label,
   argTypes: {
     size: {

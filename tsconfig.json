@@ -19,7 +19,13 @@
      "declarationMap": true,
     "baseUrl": ".",
      "paths": {
-      "reactive-atomic-desing-system": [ "src/component/index.ts" ]
+      "reactive-atomic-desing-system": [ "src/component/index.ts" ],
+      "@atoms/*": ["src/components/atoms/*"],
+      "@molecules/*": ["src/components/molecules/*"],
+      "@organism/*": ["src/components/organism/*"],
+      "@theme/*": ["src/theme/*"],
+      "@test/*": ["src/test/*"],
+      "@assets/*": ["src/assets/*"],
     },
     "typeRoots": [
       "node_modules/@types",

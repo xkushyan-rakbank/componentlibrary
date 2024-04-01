@@ -1,6 +1,6 @@
 import { Meta, Story } from '@storybook/react'
 
-import ThemeProvider from '../../../theme/theme'
+import ThemeProvider from '@theme/theme'
 import { InputFeild } from './inputFeild'
 
 export default {

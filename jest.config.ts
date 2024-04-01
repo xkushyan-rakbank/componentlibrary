@@ -8,5 +8,11 @@ export default {
     moduleNameMapper: {
         '\\.(gif|ttf|eot|svg|png)$': '<rootDir>/src/test/__mocks__/fileMock.js',
         '^@fontsource/(.*)$': '<rootDir>/src/test/__mocks__/fileMock.js',
+        "^@atoms/(.*)$": "<rootDir>/src/components/atoms/$1",
+        "^@molecules/(.*)$": "<rootDir>/src/components/molecules/$1",
+        "^@organism/(.*)$": "<rootDir>/src/components/organism/$1",
+        "^@theme/(.*)$": "<rootDir>/src/theme/$1",
+        "^@assets/(.*)$": "<rootDir>/src/assets/$1",
+        "^@test/(.*)$": "<rootDir>/src/test/$1"
     },
 }

@@ -2,9 +2,8 @@
 // ButtonGroups.stories.tsx
 
 import { Meta, StoryFn } from '@storybook/react'
-
 import AddCircleIcon from '@mui/icons-material/AddCircle'
-import { ThemeProvider } from '../../../theme/theme'
+import { ThemeProvider } from '@theme/theme'
 import ButtonGroups from './buttonGroup'
 export default {
   title: 'Molecules/ButtonGroups',

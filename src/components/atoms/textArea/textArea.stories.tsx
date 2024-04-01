@@ -1,6 +1,6 @@
 import { Meta, Story } from '@storybook/react';
 
-import ThemeProvider from 'src/theme/theme';
+import ThemeProvider from '@theme/theme';
 import { TextArea } from './textArea';
 
 export default {

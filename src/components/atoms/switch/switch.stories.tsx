@@ -1,6 +1,6 @@
 import type { Meta, StoryFn } from '@storybook/react'
 
-import { ThemeProvider } from '../../../theme/theme'
+import { ThemeProvider } from '@theme/theme'
 import { Switch } from './switch'
 
 export default {

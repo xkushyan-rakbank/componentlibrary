@@ -1,9 +1,9 @@
 import { FormControl, InputProps, useTheme } from '@mui/material'
-
-import { Label } from 'src/components/organism/label/label'
-import { pixleToEm } from 'src/theme/utils/utils'
 import styled from 'styled-components'
-import { Select } from '../../atoms/select/select'
+
+import { Label } from '@organism/label/label'
+import { pixleToEm } from '@theme/utils/utils'
+import { Select } from '@atoms/select/select'
 
 interface ExtendedInputProps {
   size?: 'small' | 'medium' | 'large'

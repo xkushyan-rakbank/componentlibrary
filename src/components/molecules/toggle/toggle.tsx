@@ -1,6 +1,5 @@
-import { Switch, SwitchStyleProps } from "src/components/atoms/switch/switch";
-
-import { Typography } from "src/components/atoms/typography/typography";
+import { Switch, SwitchStyleProps } from "@atoms/switch/switch";
+import { Typography } from "@atoms/typography/typography";
 
 export interface ToggleProps { 
     label ?: string;

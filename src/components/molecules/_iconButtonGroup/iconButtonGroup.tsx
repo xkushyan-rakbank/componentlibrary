@@ -6,7 +6,7 @@ import {
   ButtonGroupProps as MuiButtonGroupProps,
   ButtonGroup,
 } from '@mui/material'
-import { Button } from '../../atoms/button/button'
+import { Button } from '@atoms/button/button'
 import { SvgIconProps } from '@mui/material/SvgIcon'
 
 interface ButtonProps extends MuiButtonProps {

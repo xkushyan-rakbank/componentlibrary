@@ -1,7 +1,7 @@
 import { Meta, Story } from '@storybook/react';
 import { ITypography, Typography } from './typography';
 
-import ThemeProvider from 'src/theme/theme';
+import ThemeProvider from '@theme/theme';
 
 export default {
     title: 'UI/Typography',

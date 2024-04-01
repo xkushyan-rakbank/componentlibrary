@@ -1,7 +1,8 @@
 import { CheckboxProps as MuiCheckboxProps } from "@mui/material"
 import { fireEvent, screen } from "@testing-library/react"
+
+import {renderWithTheme} from "@test/testUtils"
 import StyledCheckbox from "../checkbox"
-import {renderWithTheme} from "../../../../test/testUtils"
 
 describe("Checkbox", () => {
   const defaultProps: MuiCheckboxProps = {

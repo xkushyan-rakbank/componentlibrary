@@ -5,7 +5,7 @@ import {
 } from '@mui/material'
 import { SvgIconProps } from '@mui/material/SvgIcon'
 import React from 'react'
-import { Button } from '../../atoms/button/button'
+import { Button } from '@atoms/button/button'
 
 interface ButtonProps extends MuiButtonProps {
   label: string

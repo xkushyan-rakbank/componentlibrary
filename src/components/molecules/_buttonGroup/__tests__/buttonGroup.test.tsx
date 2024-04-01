@@ -1,6 +1,5 @@
 import React from 'react'
 import { render, fireEvent } from '@testing-library/react'
-//import AddCircleIcon from '@mui/icons-material/AddCircle'
 import ButtonGroups from '../buttonGroup'
 
 describe('ButtonGroups', () => {
@@ -23,14 +22,6 @@ describe('ButtonGroups', () => {
       expect(getByText(button.label)).toBeTruthy()
     })
   })
-
-  // test('should button have icon',()=>{
-  //   const { getByText } = render(<ButtonGroups buttons={buttons} />)
-  //   buttons.forEach((button) => {
-  //     expect(getByText(button.icon)).toBeTruthy()
-  //   })
-
-  // })
 
   test('clicking on a button triggers onClick function', () => {
     const { getByText } = render(<ButtonGroups buttons={buttons} />)

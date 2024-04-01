@@ -1,7 +1,7 @@
 import { Meta, Story } from '@storybook/react'
 
 import { MenuItem } from '@mui/material'
-import ThemeProvider from '../../../theme/theme'
+import ThemeProvider from '@theme/theme'
 import { InputFeild } from './selectFeild'
 
 export default {
