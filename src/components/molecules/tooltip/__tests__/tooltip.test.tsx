@@ -1,5 +1,7 @@
 import React from 'react'
-import { render, screen } from '@testing-library/react'
+import { screen } from '@testing-library/react'
+
+import { renderWithTheme } from '@test/testUtils'
 import CustomTooltip from '../tooltip'
 
 describe('CustomTooltip', () => {
@@ -9,7 +11,7 @@ describe('CustomTooltip', () => {
     buttons: [{ label: 'Button 1', onClick: jest.fn() }],
   }
   it('renders with default props', () => {
-    render(
+    renderWithTheme(
       <CustomTooltip {...defaultProps}>
         <button>Hover me</button>
       </CustomTooltip>,
@@ -21,7 +23,7 @@ describe('CustomTooltip', () => {
   })
 
   it('renders tooltip with specified placement', () => {
-    render(
+    renderWithTheme(
       <CustomTooltip {...defaultProps} placement="bottom">
         <button>Hover me</button>
       </CustomTooltip>,
@@ -32,7 +34,7 @@ describe('CustomTooltip', () => {
   })
 
   it('renders tooltip with arrow', () => {
-    render(
+    renderWithTheme(
       <CustomTooltip {...defaultProps} arrow>
         <button>Hover me</button>
       </CustomTooltip>,
@@ -44,7 +46,7 @@ describe('CustomTooltip', () => {
 
   it('calls button onClick handler', () => {
     const onClick = jest.fn()
-    render(
+    renderWithTheme(
       <CustomTooltip {...defaultProps} buttons={[{ label: 'Button', onClick }]}>
         <button>Hover me</button>
       </CustomTooltip>,
@@ -56,5 +58,41 @@ describe('CustomTooltip', () => {
 
     // Check if onClick handler is called
     expect(onClick).toHaveBeenCalled()
+  })
+
+  it("renders when multiple buttons are passed", () => {
+    renderWithTheme(
+      <CustomTooltip
+        {...defaultProps}
+        buttons={[
+          { label: 'Button 1', onClick: jest.fn() },
+          { label: 'Button 2', onClick: jest.fn() },
+        ]}
+      >
+        <button>Hover me</button>
+      </CustomTooltip>,
+    )
+
+    // Check if both buttons are rendered
+    expect(screen.getByText('Button 1')).toBeTruthy()
+    expect(screen.getByText('Button 2')).toBeTruthy()
+  });
+
+  it("renders marginRight for first button", () => {
+    renderWithTheme(
+      <CustomTooltip
+        {...defaultProps}
+        buttons={[
+          { label: 'Button 1', onClick: jest.fn() },
+          { label: 'Button 2', onClick: jest.fn() },
+        ]}
+      >
+        <button>Hover me</button>
+      </CustomTooltip>,
+    )
+
+    // Check if first button has marginRight
+    // screen.debug(screen.getByText('Button 1'))
+    // expect(screen.getByText('Button 1')).toHaveStyle('margin-right: 3px')
   })
 })

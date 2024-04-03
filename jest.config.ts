@@ -15,4 +15,31 @@ export default {
         "^@assets/(.*)$": "<rootDir>/src/assets/$1",
         "^@test/(.*)$": "<rootDir>/src/test/$1"
     },
+
+    collectCoverage: true,
+
+    coveragePathIgnorePatterns: [
+        "/node_modules/",
+        "./src/theme",
+        "./src/test",
+        "./src/assets",
+        "\\.stories\\.tsx$",
+    ],
+
+    testPathIgnorePatterns: [
+        "/node_modules/",
+        "./src/theme",
+        "./src/assets",
+        "\\.stories\\.tsx$",
+    ],
+
+    coverageThreshold: {
+        global: {
+            statements: 90,
+            branches: 90,
+            functions: 90,
+            lines: 90
+        }
+    },
+
 }

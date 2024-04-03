@@ -7,7 +7,7 @@ export default {
   title: 'Molecules/InputFeild',
   component: InputFeild,
   argTypes: {
-    size: {
+    inputSize: {
       control: { type: 'select' },
       options: ['small', 'medium', 'large'],
     },

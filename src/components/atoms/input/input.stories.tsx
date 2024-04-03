@@ -7,7 +7,7 @@ export default {
     title: 'UI/Input',
     component: Input,
     argTypes: {
-        size: {
+        inputSize: {
             control: { type: 'select' },
             options: ['small', 'medium', 'large'],
         },
@@ -29,7 +29,7 @@ export default {
 
 
 const Template: Story = (args) =>  <ThemeProvider mode={'light'}>
-<Input size='medium' {...args}/>
+<Input inputSize='medium' {...args}/>
 </ThemeProvider>;
 
 export const Default = Template.bind({});

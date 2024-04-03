@@ -6,18 +6,18 @@ import { pixleToEm } from '@theme/utils/utils'
 import { Input } from '@atoms/input/input'
 
 interface ExtendedInputProps {
-  size?: 'small' | 'medium' | 'large'
-  Label?: string
+  inputSize?: 'small' | 'medium' | 'large'
   error?: boolean
   InputProps?: InputProps
   disabled?: boolean
   inputLabelProps?: object
+  inputLabel?: string
 }
 
 const defaultProps: ExtendedInputProps = {
   // Define your default props here
-  size: 'medium' as const,
-  inputLabel: 'Label' as const,
+  inputSize: 'medium',
+  inputLabel: 'Label',
   error: false,
 }
 
@@ -46,7 +46,7 @@ const FormControlMui = styled(FormControl)`
 `
 
 function InputFeild({
-  size = defaultProps.size,
+  inputSize = defaultProps.inputSize,
   inputLabel = defaultProps.inputLabel,
   InputProps,
   error = defaultProps.error,
@@ -55,11 +55,11 @@ function InputFeild({
   const theme = useTheme()
   return (
     <FormControlMui  error={error} theme={theme} variant="standard">
-      <Label size={size} defaultIcon={false}>
+      <Label size={inputSize} defaultIcon={false}>
         {inputLabel}
       </Label>
-      <Input error={error} disabled={disabled} size={size || 'medium'} {...InputProps} />
-      <Label className="pt-[4px]" defaultIcon={true} size={size}>
+      <Input error={error} disabled={disabled} inputSize={inputSize || 'medium'} {...InputProps} />
+      <Label className="pt-[4px]" defaultIcon={true} size={inputSize}>
         Hint
       </Label>
     </FormControlMui>

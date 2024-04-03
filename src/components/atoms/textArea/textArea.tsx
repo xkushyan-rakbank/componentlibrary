@@ -15,7 +15,11 @@ const DynamicPadding = {
   large: pixleToEm(12, true),
 }
 
-const TextAreaMui = styled(TextareaAutosize)`
+interface StyledInputProps extends TextareaAutosizeProps {
+  size?: 'small' | 'medium' | 'large'
+}
+
+const TextAreaMui = styled(TextareaAutosize)<StyledInputProps>`
   padding: ${pixleToEm(8, true)};
   border: 1px solid rgba(0, 0, 0, 0);
   border-radius: ${pixleToEm(4, true)};
@@ -69,14 +73,8 @@ const TextAreaMui = styled(TextareaAutosize)`
     border-bottom: 0;
   }
 `
-// omit size from InputProps
 
-type DefaultProps = Omit<TextareaAutosizeProps, 'size'> & {
-  // Define the types of your default props here
-  size?: string
-}
-
-function TextArea({ ...rest }: DefaultProps) {
+function TextArea({ ...rest }: StyledInputProps) {
   const theme = useTheme()
 
   return <TextAreaMui theme={theme} {...rest} />

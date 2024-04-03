@@ -1,4 +1,4 @@
-import { Story } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 
 import ThemeProvider from '@theme/theme'
 import { Label } from './label'
@@ -21,7 +21,7 @@ export default {
   },
 } as Meta
 
-const Template: Story = (args) => (
+const Template: StoryFn<typeof Label> = (args) => (
   <ThemeProvider mode={'light'}>
     <Label defaultIcon={true} size={'medium'} {...args}>Label</Label>
   </ThemeProvider>

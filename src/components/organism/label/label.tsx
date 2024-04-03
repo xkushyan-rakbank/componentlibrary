@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import Icon from '@assets/inputLabelIcon.svg'
 import { Typography } from '@atoms/typography/typography'
 import { pixleToEm } from '@theme/utils/utils'
+import { TypographyProps } from '@mui/material'
 
 const ImgSizes = {
   small: {
@@ -31,7 +32,11 @@ const lineHeightClasses = {
   large: 24,
 }
 
-const StyledTypography = styled(Typography)`
+interface StyledTypographyProps extends TypographyProps {
+  size?: 'small' | 'medium' | 'large';
+}
+
+const StyledTypography = styled(Typography)<StyledTypographyProps>`
   line-height: ${(props) => lineHeightClasses[props?.size || 'medium']}px;
   font-weight : 500
 `

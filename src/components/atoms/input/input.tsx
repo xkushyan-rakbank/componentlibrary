@@ -15,12 +15,16 @@ const DynamicPadding = {
   large: pixleToEm(12, true),
 }
 
-const StyleInput = styled(InputMui)`
+interface StyledInputProps extends InputProps {
+  inputSize?: 'small' | 'medium' | 'large';
+}
+
+const StyleInput = styled(InputMui)<StyledInputProps>`
   padding: ${pixleToEm(8, true)};
   border: 1px solid rgba(0, 0, 0, 0);
   border-radius: ${pixleToEm(4, true)};
   background-color: #f1f0ef;
-  font-size: ${(props) => fontsize[props.size]};
+  font-size: ${(props) => fontsize[props.inputSize]};
   width : 238px;
 
   &.Mui-focused {
@@ -54,8 +58,8 @@ const StyleInput = styled(InputMui)`
     }
 
     height: 1em;
-    padding: 0 ${(props) => DynamicPadding[props.size]};
-    font-size: ${(props: { size?: keyof typeof fontsize }) => fontsize[props.size ?? 'defaultSize']};
+    padding: 0 ${(props) => DynamicPadding[props.inputSize]};
+    font-size: ${(props: { inputSize?: keyof typeof fontsize }) => fontsize[props.inputSize ?? 'defaultSize']};
   }
 
   &::before {
@@ -70,21 +74,10 @@ const StyleInput = styled(InputMui)`
     border-bottom: 0;
   }
 `
-// omit size from InputProps
 
-type DefaultProps = Omit<InputProps, 'size'> & {
-  // Define the types of your default props here
-  size: string
-}
-
-const defaultProps: DefaultProps = {
-  // Define your default props here
-  size: 'medium',
-}
-
-function Input({ size = defaultProps.size, ...rest }: DefaultProps) {
+function Input({ ...rest }: StyledInputProps) {
   const theme = useTheme()
 
-  return <StyleInput theme={theme} size={size} {...rest} />
+  return <StyleInput theme={theme} {...rest} />
 }
 export { Input }
