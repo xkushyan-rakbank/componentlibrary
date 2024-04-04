@@ -75,6 +75,8 @@ declare module '@mui/material/styles' {
     black: CustomColorPaletteOptions
     tertiary: CustomColorPaletteOptions
     danger: CustomColorPaletteOptions
+    dangerError: CustomColorPaletteOptions
+    primaryAll: CustomColorPaletteOptions
     extraSmall: string
     outlineSecondary: CustomColorPaletteOptions
   }
@@ -302,6 +304,8 @@ const COMMON = {
   outlineSecondary: { ...outlineSecondary, contrastText: '#1A1A19' },
   tertiary: { ...tertiary, contrastText: text_primary },
   grey: Grey,
+  dangerError: Danger,
+  primaryAll: Primary,
   gradients: GRADIENTS,
   chart: CHART_COLORS,
   divider: Grey[500],
