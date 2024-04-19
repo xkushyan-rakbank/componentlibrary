@@ -4,3 +4,7 @@ import { ThemeProvider } from '@theme/theme'
 export const renderWithTheme = (component) => {
   return render(<ThemeProvider mode="light">{component}</ThemeProvider>)
 }
+
+export const renderWithDarkTheme = (component) => {
+  return render(<ThemeProvider mode="dark">{component}</ThemeProvider>)
+}
