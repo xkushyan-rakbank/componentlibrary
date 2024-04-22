@@ -1,5 +1,5 @@
 import { AddCircle, KeyboardArrowDown, KeyboardArrowUp, StarBorder } from '@mui/icons-material'
-import { Avatar, Collapse, ListItem, ListItemText, useTheme } from '@mui/material'
+import { Avatar, AvatarProps, Collapse, ListItem, ListItemText, useTheme } from '@mui/material'
 import React, { ReactNode, useState } from 'react'
 import styled from 'styled-components'
 
@@ -12,6 +12,7 @@ const THEME_SIZE = {
   'small' : {
     FONT_PRIMARY: '12px',
     FONT_SECONDARY: '10px',
+    AVATAR_SIZE: 24,
     INNER_GAP: 6,
     WIDTH: '250px',
     PADDING: '8px 16px',
@@ -19,6 +20,7 @@ const THEME_SIZE = {
   'medium': {
     FONT_PRIMARY: '14px',
     FONT_SECONDARY: '12px',
+    AVATAR_SIZE: 32,
     INNER_GAP: 8,
     WIDTH: '300px',
     PADDING: '8px 20px',
@@ -26,6 +28,7 @@ const THEME_SIZE = {
   'large': {
     FONT_PRIMARY: '16px',
     FONT_SECONDARY: '14px',
+    AVATAR_SIZE: 40,
     INNER_GAP: 10,
     WIDTH: '350px',
     PADDING: '12px 20px',
@@ -63,6 +66,17 @@ const StyledListItem = styled(ListItem)(({ theme }) => {
     '.MuiListItemSecondaryAction-root': {
       right: 0
     }
+})});
+
+// TODO: Avatar atom component
+interface StyledAvatarProps extends AvatarProps {
+  size: 'small' | 'medium' | 'large'
+}
+
+const StyledAvatar = styled(Avatar)<StyledAvatarProps>(({ size }) => {
+  return ({
+    width: THEME_SIZE[size]?.AVATAR_SIZE,
+    height: THEME_SIZE[size]?.AVATAR_SIZE,
 })});
 
 export interface ListItemUIProps {
@@ -135,9 +149,9 @@ const ListItemUI: React.FC<ListItemUIProps> = ({
             <AddCircle sx={{ color: COLOR_PRIMARY }}/>
           </IconButton>
         ),
-      icon: (<Avatar data-testid="listItem-icon-primary">
+      icon: (<StyledAvatar data-testid="listItem-icon-primary" size={size}>
             <StarBorder />
-          </Avatar>)
+          </StyledAvatar>)
   }
 
   const renderSecondary = {
