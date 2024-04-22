@@ -1,4 +1,3 @@
-import React from 'react'
 import { Meta, StoryFn } from '@storybook/react'
 
 import { ThemeProvider } from '@theme/theme'
@@ -17,7 +16,9 @@ export default {
       control: 'boolean',
     },
     size: {
-      control: { type: 'select', options: ['small', 'medium'] },
+      control: { type: 'select' },
+      options: ['small', 'medium', 'large'],
+      defaultValue: 'medium',
     },
   },
 } as Meta
@@ -29,9 +30,12 @@ const Template: StoryFn = (args) => (
 )
 
 export const Default = Template.bind({})
-Default.args = {}
+Default.args = {
+  size: 'medium'
+}
 
 export const Checked = Template.bind({})
 Checked.args = {
   checked: true,
+  size: 'medium'
 }

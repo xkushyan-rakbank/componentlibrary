@@ -70,7 +70,7 @@ export interface ListItemUIProps {
   headline: string,
   subtitle?: string,
   color?: string,
-  size?: string,
+  size?: 'small' | 'medium' | 'large',
   primary?: ListItemPrimary,
   secondary?: string,
   disabled: boolean,
@@ -115,6 +115,7 @@ const ListItemUI: React.FC<ListItemUIProps> = ({
       <StyledCheckbox
         onChange={handleCheck}
         edge="start"
+        size={size}
         checked={checked}
         tabIndex={-1}
         disableRipple

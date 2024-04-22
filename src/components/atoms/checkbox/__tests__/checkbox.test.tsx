@@ -1,7 +1,7 @@
 import { CheckboxProps as MuiCheckboxProps } from "@mui/material"
 import { fireEvent, screen } from "@testing-library/react"
 
-import {renderWithTheme} from "@test/testUtils"
+import { renderWithTheme } from "@test/testUtils"
 import StyledCheckbox from "../checkbox"
 
 describe("Checkbox", () => {
@@ -14,8 +14,7 @@ describe("Checkbox", () => {
   }
   test("renders with default props", () => {
     renderedComponent()
-     const checkbox = screen.getByRole("checkbox")
-
+    const checkbox = screen.getByRole("checkbox")
     expect(checkbox).toBeTruthy()
   })
   test("calls onChange when clicked", () => {
