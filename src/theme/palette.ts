@@ -8,6 +8,7 @@ import {
   Info,
   Primary,
   SUCCESS,
+  Secondary,
   Success,
   WARNING,
   Warning,
@@ -79,6 +80,8 @@ declare module '@mui/material/styles' {
     primaryAll: CustomColorPaletteOptions
     extraSmall: string
     outlineSecondary: CustomColorPaletteOptions
+    textSuccess: CustomColorPaletteOptions
+    textInfo: CustomColorPaletteOptions
   }
 
   interface PaletteOptions {
@@ -243,9 +246,9 @@ const text_danger = {
   dark: Danger[500],
 }
 const text_success = {
-  light: Grey[700],
-  main: Grey[300],
-  dark: Grey[300],
+  light: Secondary[500],
+  main: Secondary[500],
+  dark: Secondary[500],
 }
 const text_warning = {
   light: Warning[500],
@@ -303,6 +306,8 @@ const COMMON = {
   accentGray: accent_gray,
   outlineSecondary: { ...outlineSecondary, contrastText: '#1A1A19' },
   tertiary: { ...tertiary, contrastText: text_primary },
+  textSuccess: text_success,
+  textInfo: text_info,
   grey: Grey,
   dangerError: Danger,
   primaryAll: Primary,
