@@ -1,119 +1,114 @@
+import { KeyboardArrowDown } from '@mui/icons-material'
 import {
   MenuItem,
   SelectChangeEvent,
   Select as SelectMui,
-  SelectProps,
-  useTheme,
+  SelectProps as SelectMuiProps,
+  useTheme
 } from '@mui/material'
-import { ReactNode, useState } from 'react'
-
-import { pixleToEm } from '@theme/utils/utils'
+import { ReactNode, useCallback, useState } from 'react'
 import styled from 'styled-components'
 
-const fontsize = {
-  small: pixleToEm(12, true),
-  medium: pixleToEm(14, true),
-  large: pixleToEm(16, true),
+
+const THEME_SIZE = {
+  'small' : {
+    FONT_PRIMARY: 12,
+    WIDTH: 232,
+    PADDING: '8px 16px',
+  },
+  'medium': {
+    FONT_PRIMARY: 14,
+    WIDTH: 232,
+    PADDING: '8px 12px',
+  },
+  'large': {
+    FONT_PRIMARY: 16,
+    WIDTH: 232,
+    PADDING: '12px 16px',
+  },
 }
 
-const StyleInput = styled(SelectMui)`
-  padding: ${pixleToEm(8, true)} ${pixleToEm(12, true)};
-  border-radius: ${pixleToEm(4, true)};
-  background-color: #f1f0ef;
-  line-height: 1.5;
+const StyledSelect = styled(SelectMui)(({ theme, ...props }) => {
+  const { align, palette } = theme;
+  const { autoWidth, error } = props;
+  const COLOR_TEXT = error ? palette.text.tertiary : palette.text.secondary;
+  const COLOR_BG = error ? palette.background.tertiary : palette.background.secondary;
+  const COLOR_SHADOW = error ? '0px 0px 0px 3px #FFE0E0' : 'none';
 
-  & .MuiInputBase-root {
-    font-size: 0.85em !important;
-  }
-
-  & .MuiSelect-outlined {
-    min-height: 0;
-  }
-
-  & .MuiOutlinedInput-notchedOutline {
-    border: none;
-  }
-
-  &.Mui-focused {
-    box-shadow: 0px 0px 0px 3px
-      ${(props) => props.theme.palette.accentSecondary[props.theme.palette.mode]};
-    background-color: ${(props) => props.theme.palette.grey[50]};
-  }
-
-  &.Mui-error {
-    box-shadow: 0px 0px 0px 3px ${(props) => props.theme.palette.danger['dark']};
-    background-color: ${(props) => props.theme.palette.dangerSecondary[props.theme.palette.mode]};
-
-    & .MuiInputBase-input {
-      color: ${(props) => props.theme.palette.danger['light']};
-      &::placeholder {
-        color: ${(props) => props.theme.palette.danger['light']};
-        opacity: 0.6;
-      }
+  return ({
+    width: !autoWidth && THEME_SIZE[props.size].WIDTH,
+    color: COLOR_TEXT,
+    backgroundColor: COLOR_BG,
+    cursor: 'pointer',
+    padding: 0,
+    boxShadow: COLOR_SHADOW,
+    '&::before': {
+      border: 'none',
+    },
+    '&:hover': {
+      color: COLOR_TEXT,
+    },
+    '&.Mui-focused': {
+      boxShadow: '0px 3px 4px -2px #110C221A',
+    },
+    '&::after': {
+      border: 'none',
+    },
+    '.MuiOutlinedInput-notchedOutline': {
+      border: 'none',
+    },
+    '.MuiSelect-select.MuiInputBase-input': {
+      padding: THEME_SIZE[props.size].PADDING,
+      paddingRight: align === 'left' ? 32 : 14,
+      paddingLeft: align === 'left' ? 14 : 32,
+      textAlign: align,
+      fontSize: THEME_SIZE[props.size].FONT_PRIMARY,
+    },
+    '.MuiSvgIcon-root': {
+      [align === 'left' ? 'right' : 'left']: 7,
+      color: COLOR_TEXT
     }
-  }
+})});
 
-  &:focus {
-    box-shadow: 0px 0px 0px 3px
-      ${(props) => props.theme.palette.accentSecondary[props.theme.palette.mode]};
-  }
+const Placeholder = styled(MenuItem)(() => {
+  return {
+    display: 'none',
+  };
+})
 
-  & .MuiSelect-select {
-    min-height: 0;
-  }
-
-  & .MuiInputBase-input {
-    &::placeholder {
-      color: ${(props) => props.theme.palette.grey[700]};
-      opacity: 1;
-    }
-    background-color: transparent;
-    line-height: 1;
-    padding: 0 6px;
-    font-size: ${(props) => fontsize[props.size]};
-  }
-
-  &::before {
-    border-bottom: 0;
-  }
-
-  &:hover::before {
-    border-bottom: 0 !important;
-  }
-
-  &::after {
-    border-bottom: 0;
-  }
-`
-
-type DefaultProps = Omit<SelectProps, 'size'> & {
-  size?: 'small' | 'medium' | any
-  children?: React.ReactNode
+export type SelectProps = Omit<SelectMuiProps, 'size'> & {
+  size?: 'small' | 'medium',
+  defaultValue?: string,
+  align?: string,
+  placeholder?: string,
+  onSelect?: (event, value) => void,
+  children?: React.ReactNode,
 }
 
-const defaultProps: DefaultProps | any = {
-  size: 'medium',
-}
-
-function Select({ size = defaultProps.size, children, ...rest }: DefaultProps) {
+function Select({ size, align = 'left', defaultValue, children, ...props }: SelectProps) {
   const theme = useTheme()
-  const [hasSelected, setHasSelected] = useState(false)
-
-  const handleChange = (event: SelectChangeEvent<unknown>, secondProps: ReactNode) => {
-    setHasSelected(true)
-    if (rest.onChange) {
-      rest.onChange(event, secondProps)
+  const [selected, setSelected] = useState(defaultValue || "placeholder")
+  
+  const handleChange = useCallback((event: SelectChangeEvent<HTMLInputElement>, secondProps: ReactNode) => {
+    const { onSelect } = props;
+    if (onSelect) {
+      onSelect(event, secondProps)
     }
-  }
+    setSelected(event.target.value.toString())
+  }, [selected])
 
   return (
-    <StyleInput theme={theme} size={size} defaultValue={0} onChange={handleChange} {...rest}>
-      <MenuItem disabled={hasSelected} value={0}>
-        Select Options
-      </MenuItem>
+    <StyledSelect
+      theme={{ align, ...theme }}
+      size={size}
+      value={selected}
+      onChange={handleChange}
+      IconComponent={KeyboardArrowDown}
+      {...props}>
+      <Placeholder value="placeholder" theme={{ size, ...theme }}>{props.placeholder}</Placeholder>
       {children}
-    </StyleInput>
+    </StyledSelect>
   )
 }
 
-export { Select }
+export default Select;
