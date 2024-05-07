@@ -1,7 +1,8 @@
-import { Avatar, AvatarProps, Badge, styled, BadgeProps } from '@mui/material'
-import { ReactNode, FC } from 'react'
-import VerifiedIcon from '@mui/icons-material/Verified'
-import LensIcon from '@mui/icons-material/Lens'
+import LensIcon from '@mui/icons-material/Lens';
+import VerifiedIcon from '@mui/icons-material/Verified';
+import { Avatar, AvatarProps, Badge, BadgeProps, useTheme } from '@mui/material';
+import { FC, ReactNode } from 'react';
+import styled from 'styled-components';
 
 export interface StyledAvatarProps extends AvatarProps {
   children?: ReactNode
@@ -35,7 +36,9 @@ const badgeStatus = {
   verified: <VerifiedIcon />,
   offline: null,
 }
-const StyledAvatar = styled(Avatar)<StyledAvatarProps>(({ size, backgroundColor }) => ({
+const StyledAvatar = styled(Avatar)(({ theme }) => {
+  const { size, backgroundColor } = theme;
+  return {
   width: sizeMappingAvatar[size].width,
   height: sizeMappingAvatar[size].height,
   backgroundColor,
@@ -45,9 +48,11 @@ const StyledAvatar = styled(Avatar)<StyledAvatarProps>(({ size, backgroundColor 
     width: `calc(${sizeMappingAvatar[size].width} / 2)`,
     height: `calc(${sizeMappingAvatar[size].height} / 2)`,
   },
-}))
+}})
 
-const StyledBadge = styled(Badge)<ExtendedBadgeProps>(({ theme, status, size }) => ({
+const StyledBadge = styled(Badge)<ExtendedBadgeProps>(({ theme }) => {
+  const { size, status } = theme;
+  return {
   '& .MuiSvgIcon-root': {
     width: sizeMappingStatus[size][status],
     height: sizeMappingStatus[size][status],
@@ -55,7 +60,7 @@ const StyledBadge = styled(Badge)<ExtendedBadgeProps>(({ theme, status, size }) 
   '& .MuiBadge-badge': {
     color: status === 'online' ? theme.palette.textSuccess.light : theme.palette.textInfo.light,
   },
-}))
+}})
 
 const StyledAvatars: FC<StyledAvatarProps> = ({
   src,
@@ -67,16 +72,16 @@ const StyledAvatars: FC<StyledAvatarProps> = ({
   backgroundColor,
   ...props
 }) => {
+  const theme = useTheme();
   const badgeContent = badgeStatus[status]
   return (
     <StyledBadge
       overlap="circular"
       anchorOrigin={anchorOrigin}
       badgeContent={badgeContent}
-      status={status}
-      size={size}
+      theme={{size, status, ...theme}} 
     >
-      <StyledAvatar src={src} alt={alt} size={size} backgroundColor={backgroundColor} {...props}>
+      <StyledAvatar src={src} alt={alt} theme={{size, backgroundColor, ...theme}} {...props}>
         {children}
       </StyledAvatar>
     </StyledBadge>

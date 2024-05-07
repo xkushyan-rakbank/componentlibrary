@@ -6,7 +6,7 @@ import ThemeProvider from '@theme/theme'
 import ListItemUI from './listItem'
 
 export default {
-  title: 'Molecules/ListItemUI',
+  title: 'Molecules/ListItem',
   component: ListItemUI,
   argTypes: {
     size: {

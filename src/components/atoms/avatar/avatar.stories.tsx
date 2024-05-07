@@ -1,12 +1,12 @@
 // StyledAvatar.stories.tsx
-import { StoryFn, Meta } from '@storybook/react'
 import { CheckCircle } from '@mui/icons-material'
+import { Meta, StoryFn } from '@storybook/react'
 
-import StyledAvatars from './avatar'
 import { ThemeProvider } from '@theme/theme'
+import StyledAvatars from './avatar'
 
 export default {
-  title: 'Molecules/StyledAvatar',
+  title: 'Molecules/Avatar',
   component: StyledAvatars,
   argTypes: {
     size: {
