@@ -82,12 +82,14 @@ declare module '@mui/material/styles' {
     outlineSecondary: CustomColorPaletteOptions
     textSuccess: CustomColorPaletteOptions
     textInfo: CustomColorPaletteOptions
+    outlineDangerPrimary: CustomColorPaletteOptions
+    focusPrimary: CustomColorPaletteOptions
+    focusGray: CustomColorPaletteOptions
   }
 
   interface PaletteOptions {
     black: CustomColorPaletteOptions
     tertiary: CustomColorPaletteOptions
-    outlineSecondary: CustomColorPaletteOptions
     extraSmall?: string
   }
 }
@@ -220,6 +222,21 @@ const outlineSecondary = {
   main: Grey[200],
   dark: Grey[100],
 }
+const focus_primary = {
+  light: Primary[200],
+  main: Primary[200],
+  dark: Primary[800],
+}
+const focus_gray = {
+  light: Grey[100],
+  main: Grey[100],
+  dark: 'rgba(153, 153, 153, 0.2)',
+}
+const outline_danger_primary = {
+  light: Danger[200],
+  main: Danger[200],
+  dark: Danger[500],
+}
 const outline_tertiary = {
   light: Grey[50],
   main: Grey[50],
@@ -302,6 +319,9 @@ const COMMON = {
   danger: { ...danger_primary, contrastText: '#fff' },
   black: { ...black, contrastText: '#fff' },
   accentSecondary: accent_secondary,
+  outlineDangerPrimary: outline_danger_primary,
+  focusPrimary: focus_primary,
+  focusGray: focus_gray,
   dangerSecondary: danger_secondary,
   accentGray: accent_gray,
   outlineSecondary: { ...outlineSecondary, contrastText: '#1A1A19' },
