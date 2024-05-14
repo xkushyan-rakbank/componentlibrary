@@ -1,7 +1,7 @@
 import { Typography } from '@atoms/typography/typography';
 import { IconButton, ListItem, SvgIconProps, useTheme } from '@mui/material';
 import { Primary } from '@theme/colorTokens';
-import { ReactNode } from 'react';
+import { ReactNode, useCallback } from 'react';
 import styled from 'styled-components';
 
 
@@ -154,12 +154,9 @@ export function Item({
 }: ItemProps) {
   const theme = useTheme();
 
-  const handleClick = () => {
+  const handleClick = useCallback(() => {
     primaryAction && primaryAction();
-  };
-
-  const Primary = () => PrimaryIcon && <PrimaryIcon />
-  const Secondary = () => SecondaryIcon && <SecondaryIcon />
+  }, []);
 
   return (
     <>
@@ -168,7 +165,7 @@ export function Item({
         onClick={handleClick}
         className={active && 'Mui-active'}
         data-testid="item-container"
-        secondaryAction={SecondaryIcon && <Secondary />}
+        secondaryAction={SecondaryIcon && <SecondaryIcon />}
         disablePadding>
         {PrimaryIcon && <WrappedIconButton
           onClick={handleClick}
@@ -178,7 +175,7 @@ export function Item({
           data-testid="item-button-primary"
           disabled={disabled}
           disableRipple>
-            {<Primary />}
+            {PrimaryIcon && <PrimaryIcon />}
           </WrappedIconButton >}
         <Typography variant="caption" fontSize={size}>{children}</Typography>
       </StyledItem>
