@@ -44,7 +44,7 @@ Default.args = {
   itemsPerPage: [5, 10, 25, 50],
   disabled: false,
   shape: 'circular',
-  size: 'large',
+  size: 'medium',
   handleChange: () => {},
   handleChangeRowsPerPage: () => {}
 }

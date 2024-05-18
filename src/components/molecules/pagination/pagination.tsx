@@ -176,6 +176,7 @@ const PaginationUI: React.FC<PaginationProps> = ({
     <Stack spacing={2} direction="row" useFlexGap flexWrap="wrap"
       divider={<Divider orientation="vertical" flexItem />}>
       <Pagination
+        className="mt-auto mb-auto"
         page={page}
         onChange={onChangePage}
         renderItem={(item) => {
