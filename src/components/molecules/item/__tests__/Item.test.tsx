@@ -8,18 +8,18 @@ import Item, { ItemProps } from '../item';
 
 describe('Item', () => {
     const defaultProps: ItemProps = {
+      label: 'Item',
       color: 'primary',
       autoWidth: false,
-      size: 'medium',
       disabled: false,
     }
     const renderedComponent = (props: ItemProps = defaultProps) => {
-      renderWithTheme(<Item {...props}>Item</Item>)
+      renderWithTheme(<Item {...props} />)
     }
 
     test('renders Item component with headline', () => {
       renderedComponent()
-      const ItemElement = screen.getByText("Item")
+      const ItemElement = screen.getByText(defaultProps.label)
       expect(ItemElement).toBeTruthy()
     })
     test('Item has primary button with action', () => {

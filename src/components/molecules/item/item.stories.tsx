@@ -8,6 +8,10 @@ export default {
   title: 'Molecules/Item',
   component: Item,
   argTypes: {
+    label: {
+      control: { type: 'text' },
+      defaultValue: 'Item'
+    },
     size: {
       control: { type: 'inline-radio' },
       options: ['extrasmall', 'small', 'medium', 'large'],
@@ -33,12 +37,13 @@ export default {
 
 const Template: StoryFn<typeof Item> = (args) => (
   <ThemeProvider mode={'light'}>
-    <Item {...args}>Item</Item>
+    <Item {...args} />
   </ThemeProvider>
 )
 
 export const Default = Template.bind({})
 Default.args = {
+  label: 'Item',
   color: 'primary',
   autoWidth: true,
   size: 'medium',
@@ -49,6 +54,7 @@ Default.args = {
 
 export const WithoutSecondary = Template.bind({})
 WithoutSecondary.args = {
+  label: 'Item',
   autoWidth: true,
   size: 'medium',
   primary: AddCircle,
@@ -57,6 +63,7 @@ WithoutSecondary.args = {
 
 export const WithoutPrimary = Template.bind({})
 WithoutPrimary.args = {
+  label: 'Item',
   autoWidth: true,
   size: 'medium',
   secondary: KeyboardArrowDown,
@@ -65,6 +72,7 @@ WithoutPrimary.args = {
 
 export const WithoutIcons = Template.bind({})
 WithoutIcons.args = {
+  label: 'Item',
   autoWidth: true,
   size: 'medium',
   disabled: false,
@@ -78,6 +86,7 @@ const DarkTemplate: StoryFn<typeof Item> = (args) => (
 
 export const DarkMode = DarkTemplate.bind({})
 DarkMode.args = {
+  label: 'Item',
   size: 'medium',
   autoWidth: true,
   primary: AddCircle,

@@ -1,7 +1,7 @@
 import { Typography } from '@atoms/typography/typography';
 import { IconButton, ListItem, SvgIconProps, useTheme } from '@mui/material';
 import { Primary } from '@theme/colorTokens';
-import { ReactNode, useCallback } from 'react';
+import { useCallback } from 'react';
 import styled from 'styled-components';
 
 
@@ -51,11 +51,28 @@ const THEME_SIZE = {
 export type DropMenuPrimary = 'checkbox' | 'icon' | 'none';
 export type ItemColors = 'primary' | 'secondary' | 'tertiary';
 export type SizeType = 'extrasmall' | 'small' | 'medium' | 'large';
+export type ItemProps = {
+  label?: string,
+  color?: ItemColors,
+  size?: SizeType,
+  active?: boolean,
+  primary?: React.ElementType<SvgIconProps>,
+  secondary?: React.ElementType<SvgIconProps>,
+  disabled?: boolean,
+  autoWidth?: boolean,
+  primaryAction?(value?: any): null | boolean | void
+}
 
 const WrappedIconButton = (props) => <IconButton size={props.size} {...props} />;
 
-const StyledItem = styled(ListItem)(({ theme }) => {
-  const { palette, size, disabled, color, autoWidth } = theme;
+const StyledItem = styled(ListItem)<ItemProps>(({ theme, ...props }) => {
+  const { palette } = theme;
+  const {
+    color = 'primary',
+    size = 'medium',
+    disabled,
+    autoWidth
+  } = props;
 
   const THEME_COLOR = {
     disabled: {
@@ -65,7 +82,7 @@ const StyledItem = styled(ListItem)(({ theme }) => {
       COLOR_SECONDARY: palette.text.disabled,
     },
     primary: {
-      BG_PRIMARY: palette.background.surface_secondary,
+      BG_PRIMARY: palette.background.paper,
       BG_SECONDARY: palette.background.secondary,
       COLOR_PRIMARY: palette.text[color],
       COLOR_SECONDARY: palette.text[color],
@@ -84,9 +101,17 @@ const StyledItem = styled(ListItem)(({ theme }) => {
     },
   }
   const currentTheme = disabled ? THEME_COLOR.disabled : THEME_COLOR[color];
+  const autoWithProps = autoWidth
+    ? {
+      maxWidth: 'max-content'
+    } : {
+      maxWidth: THEME_SIZE[size].WIDTH,
+      textWrap: 'nowrap',
+      overflow: 'hidden',
+    }
 
   return ({
-    maxWidth: autoWidth ? 'max-content' : THEME_SIZE[size].WIDTH,
+    ...autoWithProps,
     height: THEME_SIZE[size].HEIGHT,
     display: 'flex',
     justifyContent: 'space-between',
@@ -117,7 +142,7 @@ const StyledItem = styled(ListItem)(({ theme }) => {
       textAlign: 'left',
       marginLeft: THEME_SIZE[size].INNER_GAP,
       marginRight: THEME_SIZE[size].INNER_GAP,
-      width: '100%',
+      overflowX: 'hidden',
     },
     '.MuiListItemSecondaryAction-root': {
       right: 0,
@@ -129,28 +154,13 @@ const StyledItem = styled(ListItem)(({ theme }) => {
     },
 })});
 
-export type ItemProps = {
-  children?: ReactNode,
-  color?: ItemColors,
-  size?: SizeType,
-  active?: boolean,
-  primary?: React.ElementType<SvgIconProps>,
-  secondary?: React.ElementType<SvgIconProps>,
-  disabled?: boolean,
-  autoWidth?: boolean,
-  primaryAction?(value?: any): null | boolean | void
-}
-
 export function Item({
-  children,
-  autoWidth,
+  label,
   primaryAction,
   primary: PrimaryIcon,
   secondary: SecondaryIcon,
-  color = 'primary',
-  disabled,
   active,
-  size,
+  ...props
 }: ItemProps) {
   const theme = useTheme();
 
@@ -161,23 +171,24 @@ export function Item({
   return (
     <>
       <StyledItem
-        theme={{size, disabled, color, autoWidth, ...theme}}
+        theme={theme}
         onClick={handleClick}
         className={active && 'Mui-active'}
         data-testid="item-container"
         secondaryAction={SecondaryIcon && <SecondaryIcon />}
+        {...props}
         disablePadding>
         {PrimaryIcon && <WrappedIconButton
           onClick={handleClick}
           edge="start"
-          size={size  === 'extrasmall' ? 'small' : size}
+          size={props.size  === 'extrasmall' ? 'small' : props.size}
           tabIndex={-1}
           data-testid="item-button-primary"
-          disabled={disabled}
+          disabled={props.disabled}
           disableRipple>
             {PrimaryIcon && <PrimaryIcon />}
           </WrappedIconButton >}
-        <Typography variant="caption" fontSize={size}>{children}</Typography>
+        <Typography variant="caption" fontSize={props.size}>{label}</Typography>
       </StyledItem>
     </>
   )

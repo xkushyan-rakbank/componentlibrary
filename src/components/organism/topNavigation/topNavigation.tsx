@@ -46,10 +46,11 @@ export function TopNavigation({
       {items && items.map((item) => (
         <Item
           key={item.id}
+          label={item.title}
           active={activeItem?.toString() === item.id}
           primaryAction={(value) => handleClick(item.id, value)}
-          {...props}>{item.title}
-        </Item>
+          {...props}
+        />
       ))}
     </TopNavigationContainer>
   )
