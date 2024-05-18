@@ -28,7 +28,16 @@ const THEME_SIZE = {
   },
 }
 
-const StyledSelect = styled(SelectMui)(({ theme, ...props }) => {
+export type SelectProps = Omit<SelectMuiProps, 'size'> & {
+  size?: 'small' | 'medium',
+  defaultValue?: string,
+  align?: string,
+  placeholder?: string,
+  onSelect?: (event, value) => void,
+  children?: React.ReactNode,
+}
+
+const StyledSelect = styled(SelectMui)<SelectProps>(({ theme, ...props }) => {
   const { align, palette } = theme;
   const { autoWidth, error } = props;
   const COLOR_TEXT = error ? palette.text.tertiary : palette.text.secondary;
@@ -76,14 +85,6 @@ const Placeholder = styled(MenuItem)(() => {
   };
 })
 
-export type SelectProps = Omit<SelectMuiProps, 'size'> & {
-  size?: 'small' | 'medium',
-  defaultValue?: string,
-  align?: string,
-  placeholder?: string,
-  onSelect?: (event, value) => void,
-  children?: React.ReactNode,
-}
 
 function Select({ size, align = 'left', defaultValue, children, ...props }: SelectProps) {
   const theme = useTheme()
