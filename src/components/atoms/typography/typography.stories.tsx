@@ -1,4 +1,4 @@
-import { Meta, Story } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import { ITypography, Typography } from './typography';
 
 import ThemeProvider from '@theme/theme';
@@ -20,13 +20,12 @@ export default {
     },
 } as Meta;
 
-
-
-const Template: Story<ITypography> = (args) =>  <ThemeProvider mode={'light'}>
-<Typography {...args}>Hello World</Typography>
-</ThemeProvider>;
+const Template: StoryFn<ITypography> = (args) => (
+  <ThemeProvider mode={'light'}>
+    <Typography {...args}>Hello World</Typography>
+  </ThemeProvider>);
 
 export const Default = Template.bind({});
 Default.args = {
-    variant: 'body1',
+  variant: 'body1',
 };
