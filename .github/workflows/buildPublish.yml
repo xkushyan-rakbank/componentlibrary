@@ -30,7 +30,7 @@ jobs:
             - name: Publish to GitHub Packages
               run: |
                   echo "registry=https://npm.pkg.github.com/xkushyan-rakbank" >> .npmrc
-                  echo "//npm.pkg.github.com/:_authToken=${{ secrets.TOKEN }}" >> .npmrc
+                  echo "//npm.pkg.github.com/:_authToken=${{ secrets.PUBLISH_TOKEN }}" >> .npmrc
                   echo "@xkushyan-rakbank:registry=https://npm.pkg.github.com" >> .npmrc
                   cat .npmrc
                   npm publish
