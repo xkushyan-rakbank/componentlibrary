@@ -3,12 +3,10 @@ name: Test and Build
 on:
     push:
         branches:
-            - main, 
-            - feat/buildPipeline
+            - main
     pull_request:
         branches:
             - main
-            - feat/buildPipeline
 
 jobs:
     build:
@@ -26,28 +24,12 @@ jobs:
             - name: Install dependencies
               run: npm install
 
-            - name: Run tests
-              run: npm test -- --coverage
-            
-            - name: Publish Test Results
-              if: always()  # Always publish results even if tests fail
-              uses: actions/upload-artifact@v2
-              with:
-                name: jest-report
-                path: coverage/lcov-report
-          
-            - name: Publish Coverage Report
-              uses: actions/upload-artifact@v2
-              with:
-                name: coverage-report
-                path: coverage/lcov-report
-
             - name: Build
               run: npm run build
             
             - name: Publish to GitHub Packages
               run: |
                   echo "registry=https://npm.pkg.github.com/xkushyan-rakbank" >> .npmrc
-                  echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> .npmrc
+                  echo "//npm.pkg.github.com/:_authToken=${{ secrets.NPM_TOKEN }}" >> .npmrc
                   echo "@xkushyan-rakbank:registry=https://npm.pkg.github.com" >> .npmrc
                   npm publish
