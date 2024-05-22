@@ -32,4 +32,5 @@ jobs:
                   echo "registry=https://npm.pkg.github.com/xkushyan-rakbank" >> .npmrc
                   echo "//npm.pkg.github.com/:_authToken=${{ secrets.NPM_TOKEN }}" >> .npmrc
                   echo "@xkushyan-rakbank:registry=https://npm.pkg.github.com" >> .npmrc
+                  cat .npmrc
                   npm publish
